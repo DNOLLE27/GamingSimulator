@@ -11,6 +11,6 @@
     switch($uc)
     {
         case 'accueil' : { include "c_accueil.php"; break; }
-        case 'deconnexion' : { include "includes/modeles/deconnexion.php"; break;}
+        case 'deconnexion' : { include "includes/modeles/deconnexion.php"; break; }
     }
 ?>

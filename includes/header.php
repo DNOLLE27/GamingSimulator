@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>site web</title>
+        <title>GamingSimulator-WEB</title>
         <link rel="stylesheet" href="includes/css/style.css">
     </head>
 
