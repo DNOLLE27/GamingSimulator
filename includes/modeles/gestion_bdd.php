@@ -67,6 +67,22 @@
         }
     }
 
+    function verifMDP($mdp)
+    {
+        $verifMDP = false;
+        $regex = "/^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[@$!%*#?&])[a-zA-Z0-9@$!%*#?&]{8,}$/";
+
+        if (strlen($mdp) >= 8)
+        {
+            if (preg_match($regex,$mdp))
+            {
+                $verifMDP = true;
+            }
+        }
+
+        return $verifMDP;
+    }
+
     function inscrireUser($email,$mdp,$droit)
     {
         require "connexion.php";

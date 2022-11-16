@@ -47,8 +47,6 @@
 
         case 'verifInscr' :
         {
-            echo verifAdminExist();
-
             $email = $_POST['adrEmail'];
             $mdp = $_POST['mdp'];
             $emailVerif = $_POST['adrEmailVerif'];
@@ -58,18 +56,21 @@
             {
                 if ($email == $emailVerif && $mdp == $mdpVerif)
                 {
-                    if (verifAdminExist())
+                    if (verifMDP($mdp))
                     {
-                        inscrireUser($email,$mdp,1);
-                    }
-                    else
-                    {
-                        inscrireUser($email,$mdp,2);
+                        if (verifAdminExist())
+                        {
+                            inscrireUser($email,$mdp,1);
+                        }
+                        else
+                        {
+                            inscrireUser($email,$mdp,2);
+                        }
                     }
                 }
             }
 
-            echo verifAdminExist();
+            echo verifMDP($mdp);
 
             require "views/v_auth.php";
             break;
