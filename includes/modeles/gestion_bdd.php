@@ -83,6 +83,24 @@
         return $verifMDP;
     }
 
+    function verifUserExist($email)
+    {
+        require "connexion.php";
+
+        $sql="SELECT mailUser FROM utilisateur WHERE mailUser = '$email'";
+        $exec=$bdd->query($sql);
+        $nbUtilisateurs = $exec->rowCount();
+
+        if ($nbUtilisateurs != 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     function inscrireUser($email,$mdp,$droit)
     {
         require "connexion.php";
