@@ -1,4 +1,97 @@
-p
+@font-face 
 {
-    color : red;
+    font-family:"retro-gaming";
+    src: url("../../includes/font/Retro-Gaming.ttf") format("truetype");
+}
+
+body
+{
+    background-color: rgb(0,0,0);
+}
+
+.grid-nav
+{   
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 2fr 8fr 2fr;
+    background-color: rgb(0,0,0);
+    border: solid 5px rgb(0,255,255);
+}
+
+.grid-nav-menu
+{
+    grid-row: 1 / span 2;
+}
+
+.grid-nav-menu ul
+{
+    padding: 0;
+    margin: 0;
+}
+
+.grid-nav-menu li
+{
+    font-family: retro-gaming;
+    display: inline;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.grid-nav-titre
+{
+    font-family: retro-gaming;   
+    margin-top: 50px;
+    text-align: center;
+    grid-row: 1 / span 2;
+}
+
+.grid-nav-logo
+{
+    grid-row: 1 / span 2;
+}
+
+.menu-deco-logo, .menu-logo
+{
+    margin-bottom: -10px;
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80px;
+    height: 80px;
+}
+
+.grid-nav-deco-texte
+{
+    margin-top: 10px;
+    font-family: retro-gaming;
+    text-align: center;
+}
+
+.lien-menu
+{
+    text-decoration: none;
+    font-family: retro-gaming;
+}
+
+.nom-ent, .lien-deco
+{
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.menu-deco-logo
+{
+    width: 50px;
+    height: 50px;
+}
+
+.grid-nav-menu nav
+{
+    margin-top: 58px;
+    margin-left: 10px;
+}
+
+.grid-nav a, .grid-nav li 
+{
+    color: rgb(0,255,255);
 }
