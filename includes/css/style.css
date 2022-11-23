@@ -1,60 +1,97 @@
-.menu-nav table
+@font-face 
 {
-    width: 100%;
+    font-family:"retro-gaming";
+    src: url("../../includes/font/Retro-Gaming.ttf") format("truetype");
 }
 
-.td-nom-ent
+body
 {
-    width: 20vw;
+    background-color: rgb(0,0,0);
+}
+
+.grid-nav
+{   
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 2fr 8fr 2fr;
+    background-color: rgb(0,0,0);
+    border: solid 5px rgb(0,255,255);
+}
+
+.grid-nav-menu
+{
+    grid-row: 1 / span 2;
+}
+
+.grid-nav-menu ul
+{
+    padding: 0;
+    margin: 0;
+}
+
+.grid-nav-menu li
+{
+    font-family: retro-gaming;
+    display: inline;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.grid-nav-titre
+{
+    font-family: retro-gaming;   
+    margin-top: 50px;
+    text-align: center;
+    grid-row: 1 / span 2;
+}
+
+.grid-nav-logo
+{
+    grid-row: 1 / span 2;
+}
+
+.menu-deco-logo, .menu-logo
+{
+    margin-bottom: -10px;
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80px;
+    height: 80px;
+}
+
+.grid-nav-deco-texte
+{
+    margin-top: 10px;
+    font-family: retro-gaming;
     text-align: center;
 }
 
 .lien-menu
 {
     text-decoration: none;
-    color: rgb(0,255,255);
+    font-family: retro-gaming;
 }
 
-.nom-ent
+.nom-ent, .lien-deco
 {
-    text-decoration: none;    
-    color: rgb(0,255,255);
-}
-
-.menu-nav
-{
-    color: rgb(0,255,255);
-    font-size: 30px;
+    font-size: 25px;
+    text-decoration: none;
 }
 
 .menu-deco-logo
 {
-    display: block;
-    height: 50px;
     width: 50px;
-    margin-left: auto;
-    margin-right: auto;
+    height: 50px;
 }
 
-.menu-logo
+.grid-nav-menu nav
 {
-    display: block;
-    height: 80px;
-    width: 80px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 58px;
+    margin-left: 10px;
 }
 
-.menu-nav ul
+.grid-nav a, .grid-nav li 
 {
-    padding: 0;
-    margin: 0;
-    margin-top: -2px;
-}
-
-.menu-nav li
-{
-    display: inline;
-    margin-right: 5px;
-    margin-left: 5px;
+    color: rgb(0,255,255);
 }
