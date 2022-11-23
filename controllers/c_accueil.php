@@ -12,6 +12,7 @@
     {
         case 'afficher' : 
         { 
+            $jeuxAccueil = jeuxAccueil();
             require "views/v_accueil.php"; 
             break; 
         }

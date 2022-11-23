@@ -1,4 +1,25 @@
 p
 {
-    color : red;
+    color : cyan;
+    font-family: Retro;
+}
+
+body{
+    background-image: url("../img/background.png");
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+
+.texteJeuxAccueil{
+    color: cyan;
+    font-family: Retro;
+    font-size: 10px;
+}
+
+@font-face {
+    font-family: "Retro";
+    src: url('../font/RetroGaming.ttf');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
 }
