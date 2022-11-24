@@ -128,10 +128,10 @@
         $rnd = rand(0,18);
         require "connexion.php";
 
-        $sql="SELECT nomJeux, imageJeux, nomCons FROM jeux INNER JOIN console ON consoleJeux = idCons LIMIT 3 OFFSET $rnd";
-        $exec=$bdd->prepare($sql);
-        $exec->fetchAll();
+        $sql="SELECT nomJeux, imageJeux, nomCons FROM jeux INNER JOIN console ON consoleJeux = idCons LIMIT 4 OFFSET $rnd";
+        $exec=$bdd->query($sql);
+        $curseur=$exec->fetchAll();
 
-        return $exec;
+        return $curseur;
     }
 ?>

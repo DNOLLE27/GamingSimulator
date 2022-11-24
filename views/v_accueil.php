@@ -1,10 +1,15 @@
-<div class="gridJeuxAccueil">
+<p class="titreAccueil">Exemples de jeux</p>
+<div class="gridAccueil">
       <?php
       foreach ($jeuxAccueil as $unJeuAccueil){
             echo '<div class="texteJeuxAccueil">'
-                  . '<img src="'.$unJeuAccueil['ImageJeux'].'">'
-                  . '<label>'.$unJeuAccueil['nomJeux'].'</label>'
-                  . '<label>'.$unJeuAccueil['nomCons'].'</label>'
+                  . '</br>'
+                  . '<img class="imageJeuxAccueil" src="'.$unJeuAccueil['imageJeux'].'">'
+                  . '</br>'
+                  . '<label class="nomJeux">'.$unJeuAccueil['nomJeux'].'</label>'
+                  . '</br>'
+                  . '</br>'
+                  . '<label class="nomConsole">'.$unJeuAccueil['nomCons'].'</label>'
                   . '</div>';
       }
       ?>  
