@@ -9,10 +9,10 @@
     <body>
         <div class="grid-nav">
             <div class="grid-nav-logo">
-                <img class="menu-logo" src="includes/img/logo.png">
+                <a href="index.php"><img class="menu-logo" src="includes/img/logo.png"></a>
             </div>
             <div class="grid-nav-titre">
-                <a class="nom-ent" href="#">GamingSimulator</a>
+                <a class="nom-ent" href="index.php">GamingSimulator</a>
             </div>
             <div class="grid-nav-menu">
                 <nav>
@@ -31,6 +31,6 @@
                 <img class="menu-deco-logo" src="includes/img/iconeCompte-bleu.png">
             </div>
             <div class="grid-nav-deco-texte">
-                <a class="lien-deco" href="#">Connexion</a>
+                <a class="lien-deco" href="index.php?uc=authentification">Connexion</a>
             </div>
         </div>
