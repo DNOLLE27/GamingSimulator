@@ -124,6 +124,17 @@
         $exec->execute();
     }
 
+    function jeuxAccueil(){
+        $rnd = rand(0,18);
+        require "connexion.php";
+
+        $sql="SELECT nomJeux, imageJeux, nomCons FROM jeux INNER JOIN console ON consoleJeux = idCons LIMIT 4 OFFSET $rnd";
+        $exec=$bdd->query($sql);
+        $curseur=$exec->fetchAll();
+
+        return $curseur;
+    }
+
 
 
     function lEtat($id)
