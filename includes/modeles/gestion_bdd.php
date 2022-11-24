@@ -123,4 +123,43 @@
         $exec=$bdd->prepare($sql);
         $exec->execute();
     }
+
+
+
+    function lEtat($id)
+    {
+        require "connexion.php";
+
+        $sql="SELECT idEtat, libelleEtat, descriptionEtat FROM etat WHERE idEtat = '$id'";
+        $exec=$bdd->query($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetch();
+        return $curseur;
+
+    }
+
+    function getLesEtats()
+    {
+        require "connexion.php";
+
+        $sql = "select idEtat, libelleEtat, descriptionEtat "
+            . "from etat " ;
+        $exec=$bdd->query($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll();
+        return $curseur;
+    }
+
+    function getLesMarques()
+    {
+        require "connexion.php";
+
+        $sql = "select idMarque, libelleMarque, imageMarque "
+            . "from marque " ;
+        $exec=$bdd->query($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll();
+        return $curseur;
+
+    }
 ?>
