@@ -1,13 +1,50 @@
-@font-face 
-{
-    font-family:"retro-gaming";
-    src: url("../../includes/font/Retro-Gaming.ttf") format("truetype");
+body{
+    background-image: url("../img/background.png");
+    background-repeat: repeat-y;
+    background-size: cover;
 }
 
-body
-{
-    background-color: rgb(0,0,0);
+.texteJeuxAccueil{
+    border: 3px solid cyan;
+    border-radius: 20px;
+    color: cyan;
+    background-color: grey;
+    font-family: retro;
+    font-size: 13px;
+    text-align: center;
 }
+
+.imageJeuxAccueil{
+    width: 60%;
+    height: 65%;
+}
+
+@font-face {
+    font-family: "Retro";
+    src: url('../font/RetroGaming.ttf');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+.titreAccueil{
+    font-family: retro;
+    color: cyan;
+    font-size: 25px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gridAccueil{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 10%;
+    margin-left:10%;
+    margin-right: 10%;
+}
+
 
 .grid-nav
 {   
@@ -30,7 +67,7 @@ body
 
 .grid-nav-menu li
 {
-    font-family: retro-gaming;
+    font-family: retro;
     display: inline;
     margin-right: 10px;
     margin-left: 10px;
@@ -38,7 +75,7 @@ body
 
 .grid-nav-titre
 {
-    font-family: retro-gaming;   
+    font-family: retro;   
     margin-top: 50px;
     text-align: center;
     grid-row: 1 / span 2;
@@ -63,14 +100,14 @@ body
 .grid-nav-deco-texte
 {
     margin-top: 10px;
-    font-family: retro-gaming;
+    font-family: retro;
     text-align: center;
 }
 
 .lien-menu
 {
     text-decoration: none;
-    font-family: retro-gaming;
+    font-family: retro;
 }
 
 .nom-ent, .lien-deco
@@ -98,6 +135,7 @@ body
 .auth-div
 {
     margin-top: 30px;
+    background-color: rgb(0, 0, 0);
     border: solid 3px rgb(0,255,255);
     width: 400px;
     margin-left: auto;
