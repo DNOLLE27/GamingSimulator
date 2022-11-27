@@ -94,6 +94,18 @@
             if (isset($messageReussi) && $messageReussi != "")
             {
                 echo '<p class="msgReu">'.$messageReussi.'</p>';
+
+                if ($_REQUEST['action'] == "verifInscr")
+                {
+                    echo '<form name="retour-form" id="retour-form" method="POST" action="index.php?uc=authentification&action=connexion">';
+                }
+                else
+                {
+                    echo '<form name="retour-form" id="retour-form" method="POST" action="index.php">';
+                }
+
+                echo '<button type="submit">Ok</button>
+                </form>';
             }
         }
     ?>

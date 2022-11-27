@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>GamingSimulator-WEB</title>
         <link rel="stylesheet" href="includes/css/style.css">
+        <script src="includes/js/fonctions.js"></script>
     </head>
 
     <body>
@@ -27,10 +28,24 @@
                     </ul>
                 </nav>
             </div>
-            <div class="grid-nav-deco">
-                <a class="lien-deco" href="index.php?uc=authentification"><img class="menu-deco-logo" src="includes/img/iconeCompte-bleu.png"></a>
-            </div>
-            <div class="grid-nav-deco-texte">
-                <a class="lien-deco" href="index.php?uc=authentification">Connexion</a>
-            </div>
+            <?php
+                if (isset($_SESSION['droit']))
+                {
+                    echo '<div class="grid-nav-deco">
+                        <a class="lien-deco" href="index.php?uc=deconnexion"><img class="menu-deco-logo" src="includes/img/iconeCompte-bleu.png"></a>
+                    </div>
+                    <div class="grid-nav-deco-texte">
+                        <a class="lien-deco" href="index.php?uc=deconnexion">'.$_SESSION['email'].' (se déconnecter)</a>
+                    </div>';
+                }
+                else
+                {
+                    echo '<div class="grid-nav-deco">
+                        <a class="lien-co" href="index.php?uc=authentification"><img class="menu-deco-logo" src="includes/img/iconeCompte-bleu.png"></a>
+                    </div>
+                    <div class="grid-nav-deco-texte">
+                        <a class="lien-co" href="index.php?uc=authentification">Connexion</a>
+                    </div>';
+                }
+            ?>
         </div>

@@ -139,7 +139,7 @@
     {
         require "connexion.php";
         
-        $sql="SELECT nomCons, libelleMarque FROM console INNER JOIN marque ON marqueCons = idMarque";
+        $sql="SELECT idCons, nomCons, libelleMarque FROM console INNER JOIN marque ON marqueCons = idMarque";
         $exec=$bdd->query($sql);
         $lesConsoles=$exec->fetchAll();
 
@@ -155,5 +155,46 @@
         $lesMarques=$exec->fetchAll();
 
         return $lesMarques;
+    }
+
+    function verifConoleExiste($nom,$marque)
+    {
+        require "connexion.php";
+
+        $sql="SELECT nomCons FROM console WHERE nomCons = '$nom' AND marqueCons = $marque";
+        $exec=$bdd->query($sql);
+
+        $nbCons = $exec->rowCount();
+
+        if ($nbCons == 0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    function verifNomConsole($nom)
+    {
+        $verifNomConsole = false;
+        $regex = "/^[a-zA-Z0-9][a-zA-Z0-9 ]{0,15}[a-zA-Z0-9]$/";
+    
+        if (preg_match($regex,$nom))
+        {
+            $verifNomConsole = true;
+        }
+        
+        return $verifNomConsole;
+    }
+
+    function ajoutConsole($nom,$marque)
+    {
+        require "connexion.php";
+
+        $sql="INSERT INTO console (nomCons,marqueCons) VALUES ('$nom',$marque)";
+        $exec=$bdd->prepare($sql);
+        $exec->execute();
     }
 ?>

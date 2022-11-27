@@ -24,5 +24,19 @@
             require "views/v_consoles.php"; 
             break; 
         }
+
+        case 'verifAjoutConsole' :
+        {
+            $nomConsole = $_POST['nomConsole'];
+            $marqueConsole = $_POST['marqueConsole'];
+
+            if (!empty($nomConsole) && verifNomConsole($nomConsole))
+            {
+                if (!verifConoleExiste($nomConsole,$marqueConsole))
+                {
+                    ajoutConsole($nomConsole,$marqueConsole);
+                }
+            }
+        }
     }
 ?>
