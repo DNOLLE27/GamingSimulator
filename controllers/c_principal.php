@@ -12,6 +12,7 @@
     {
         case 'accueil' : { include "c_accueil.php"; break; }
         case 'authentification' : { include "c_auth.php"; break; }
+        case 'consoles' : { include "c_consoles.php"; break;}
         case 'deconnexion' : { include "includes/modeles/deconnexion.php"; break; }
     }
 ?>

@@ -134,4 +134,26 @@
 
         return $curseur;
     }
+
+    function getLesConsoles()
+    {
+        require "connexion.php";
+        
+        $sql="SELECT nomCons, libelleMarque FROM console INNER JOIN marque ON marqueCons = idMarque";
+        $exec=$bdd->query($sql);
+        $lesConsoles=$exec->fetchAll();
+
+        return $lesConsoles;
+    }
+
+    function getLesMarques()
+    {
+        require "connexion.php";
+        
+        $sql="SELECT idMarque, libelleMarque FROM marque";
+        $exec=$bdd->query($sql);
+        $lesMarques=$exec->fetchAll();
+
+        return $lesMarques;
+    }
 ?>
