@@ -165,7 +165,7 @@
     {
         require "connexion.php";
 
-        $sql = "select idMarque, libelleMarque, imageMarque "
+        $sql = "select idMarque, libelleMarque, logoMarque "
             . "from marque " ;
         $exec=$bdd->query($sql) ;
         $exec->execute() ;
