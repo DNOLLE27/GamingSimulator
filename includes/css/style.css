@@ -1,9 +1,3 @@
-p
-{
-    color : cyan;
-    font-family: Retro;
-}
-
 body{
     background-image: url("../img/background.png");
     background-repeat: repeat-y;
@@ -15,7 +9,7 @@ body{
     border-radius: 20px;
     color: cyan;
     background-color: grey;
-    font-family: Retro;
+    font-family: retro;
     font-size: 13px;
     text-align: center;
 }
@@ -34,6 +28,8 @@ body{
 }
 
 .titreAccueil{
+    font-family: retro;
+    color: cyan;
     font-size: 25px;
     text-align: center;
     margin-left: auto;
@@ -47,4 +43,277 @@ body{
     grid-gap: 10%;
     margin-left:10%;
     margin-right: 10%;
+}
+
+
+.grid-nav
+{   
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 2fr 8fr 2fr;
+    background-color: rgb(0,0,0);
+    border: solid 5px rgb(0,255,255);
+}
+
+.grid-nav-menu
+{
+<<<<<<< HEAD
+    grid-row: 1 / span 2;
+}
+
+.grid-nav-menu ul
+{
+    padding: 0;
+    margin: 0;
+}
+
+.grid-nav-menu li
+{
+    font-family: retro;
+    display: inline;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.grid-nav-titre
+{
+    font-family: retro;   
+    margin-top: 50px;
+    text-align: center;
+    grid-row: 1 / span 2;
+}
+
+.grid-nav-logo
+{
+    grid-row: 1 / span 2;
+}
+
+.menu-deco-logo, .menu-logo
+{
+    margin-bottom: -10px;
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80px;
+    height: 80px;
+}
+
+.grid-nav-deco-texte
+{
+    margin-top: 10px;
+    font-family: retro;
+    text-align: center;
+}
+
+.lien-menu
+{
+    text-decoration: none;
+    font-family: retro;
+}
+
+.nom-ent, .lien-deco
+{
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.menu-deco-logo
+{
+    width: 50px;
+    height: 50px;
+}
+
+.grid-nav-menu nav
+{
+    margin-top: 58px;
+    margin-left: 10px;
+}
+
+.grid-nav a, .grid-nav li 
+{
+    color: rgb(0,255,255);
+}
+=======
+    color : red;
+}
+
+.imgMarque{
+    width: 100%;
+    height: 100%;
+}
+
+.boxMarque {
+   
+
+    width: auto;
+    height: auto;
+    margin-bottom: 5%;
+    margin-top: 6%;
+    
+    padding: 5%;
+    background: #3a3e3e;
+    box-shadow: 0em 0em 2em grey;
+    border-radius:20px;
+    border: 3px solid rgb(0, 255, 255);
+  }
+
+
+  .Imaguss{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5%;
+    margin-right: 15%;
+    margin-left: 15%;
+    
+}
+
+
+.auth-div
+{
+    margin-top: 30px;
+    background-color: rgb(0, 0, 0);
+    border: solid 3px rgb(0,255,255);
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.auth-div table
+{
+    margin-top: 40px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.auth-div h1
+{
+    color: rgb(0,255,255);
+    font-family: retro-gaming;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.auth-div p
+{
+    color: rgb(0,255,255);
+    font-family: retro-gaming;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.form-auth button
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+
+    font-family: retro-gaming;
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.form-auth button:hover 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.form-auth button:focus 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.form-auth button:active 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.form-auth button:focus:hover
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.form-auth button:focus:active 
+{
+    color: rgb(0, 90, 90);
+    background-color: rgb(0,255,255);
+    border: solid 2px rgb(0, 90, 90);
+}
+
+#retour-form button
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    font-family: retro-gaming;
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+#retour-form button:hover 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+#retour-form button:focus 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+#retour-form button:active 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+#retour-form button:focus:hover
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+#retour-form button:focus:active 
+{
+    color: rgb(0, 90, 90);
+    background-color: rgb(0,255,255);
+    border: solid 2px rgb(0, 90, 90);
+}
+
+.msgReu
+{
+    margin-top: 20px !important;
+    color: rgb(0, 255, 0) !important;
+}
+
+.msgErr
+{
+    margin-top: 20px !important;
+    color: rgb(255, 0, 0) !important;
+}
+
+.admin
+{
+    color: rgb(0, 0, 255) !important;
+    margin-bottom: -20px !important;
 }
