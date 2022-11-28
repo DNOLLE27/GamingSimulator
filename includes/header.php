@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <title>GamingSimulator-WEB</title>
         <link rel="stylesheet" href="includes/css/style.css">
-        <script src="includes/js/fonctions.js"></script>
     </head>
 
     <body>

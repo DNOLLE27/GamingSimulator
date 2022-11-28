@@ -29,9 +29,7 @@
         {
             $lesConsoles = getLesConsoles();
             $idSuppr = $_POST['idConsole'];
-
-            echo $idSuppr;
-
+            
             require "views/v_consoles.php"; 
             break; 
         }

@@ -20,33 +20,32 @@
     }
     else
     {
-        echo $_POST['idConsole'];
         echo '<div class="consoles-grid">';
             foreach ($lesConsoles as $uneConsole)
                 {
                     if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'supprConsole' && $uneConsole['idCons'] == $idSuppr)
                     {
                         echo '<div class="element-grid">
-                            <p style="color:red">'.$idSuppr.' - '.$uneConsole['idCons'].' </p>
+                            <p class="text-style-standard texte-consoles">Voulez-vous supprimer la console '.$uneConsole['nomCons'].' ?</p>
                         </div>';
                     }
                     else
                     {
                         echo '<div class="element-grid">
-                            <p class="text-style-standard texte-consoles"><span class="texte-souligne">Nom :</span> '.$uneConsole['idCons'].'-'.$uneConsole['nomCons'].'</p>
+                            <p class="text-style-standard texte-consoles"><span class="texte-souligne">Nom :</span> '.$uneConsole['nomCons'].'</p>
                             <p class="text-style-standard texte-consoles"><span class="texte-souligne">Marque :</span> '.$uneConsole['libelleMarque'].'</p>
                             <table>
                                 <tr>
                                     <td>
                                         <form name="modif-console-form" id="modif-console-form" method="POST" action="index.php?uc=consoles&action=modifConsole">
                                             <input type="hidden" name="idConsole" id="idConsole" value="'.$uneConsole['idCons'].'">
-                                            <a class="modif-lien" href="javascript:validModifForm()">Modifier</a>
+                                            <button class="boutton-standard btn-modif" type="submit">Modifier</button>
                                         </form>
                                     </td>
                                     <td>
                                         <form name="suppr-console-form" id="suppr-console-form" method="POST" action="index.php?uc=consoles&action=supprConsole">
                                             <input type="hidden" name="idConsole" id="idConsole" value="'.$uneConsole['idCons'].'">
-                                            <a class="suppr-lien" href="javascript:validSupprForm()">Supprimer</a>    
+                                            <button class="boutton-standard btn-suppr" type="submit">Supprimer</button>  
                                         </form>
                                     </td>
                                 </tr>
