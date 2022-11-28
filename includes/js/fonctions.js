@@ -1,9 +1,11 @@
 function validModifForm()
 {
-    document.forms['modif-console-form'].submit();
+    document.getElementById('modif-console-form').submit();
+    return true;
 }
 
 function validSupprForm()
 {
-    document.forms['suppr-console-form'].submit();
+    document.getElementById('suppr-console-form').submit();
+    return true;
 }

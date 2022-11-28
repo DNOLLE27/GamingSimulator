@@ -25,18 +25,43 @@
             break; 
         }
 
+        case 'supprConsole' :
+        {
+            $lesConsoles = getLesConsoles();
+            $idSuppr = $_POST['idConsole'];
+
+            echo $idSuppr;
+
+            require "views/v_consoles.php"; 
+            break; 
+        }
+
         case 'verifAjoutConsole' :
         {
             $nomConsole = $_POST['nomConsole'];
             $marqueConsole = $_POST['marqueConsole'];
+            $messageErr = "";
+            $messageReu = "";
 
             if (!empty($nomConsole) && verifNomConsole($nomConsole))
             {
                 if (!verifConoleExiste($nomConsole,$marqueConsole))
                 {
                     ajoutConsole($nomConsole,$marqueConsole);
+                    $messageReu = "La console ".$nomConsole." a bien été enregistrée !";
+                }
+                else
+                {
+                    $messageErr = "Erreur : La console saisie existe déjà, veuillez en saisir une autre !";
                 }
             }
+            else
+            {
+                $messageErr = "Erreur : Le nom saisi n'est pas valide, veuillez la resaisir !";
+            }
+
+            require "views/v_consoles.php"; 
+            break;
         }
     }
 ?>
