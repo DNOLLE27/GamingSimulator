@@ -29,8 +29,17 @@
         {
             $lesConsoles = getLesConsoles();
             $idSuppr = $_POST['idConsole'];
-            
             require "views/v_consoles.php"; 
+            break; 
+        }
+
+        case 'validSupprConsole' :
+        {
+            $lesConsoles = getLesConsoles();
+            $idSupprValid = $_POST['idConSuppr'];
+            supprConsole($idSupprValid);
+
+            header("Location:index.php?uc=consoles"); 
             break; 
         }
 

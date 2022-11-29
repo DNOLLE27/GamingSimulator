@@ -197,4 +197,13 @@
         $exec=$bdd->prepare($sql);
         $exec->execute();
     }
+
+    function supprConsole($id)
+    {
+        require "connexion.php";
+
+        $sql="DELETE FROM console WHERE idCons = $id";
+        $exec=$bdd->prepare($sql);
+        $exec->execute();
+    }
 ?>

@@ -27,30 +27,47 @@
                     {
                         echo '<div class="element-grid">
                             <p class="text-style-standard texte-consoles">Voulez-vous supprimer la console '.$uneConsole['nomCons'].' ?</p>
+
+                            <table>
+                                <form name="validSuppr-form" id="validSuppr-form" method="POST" action="index.php?uc=consoles&action=validSupprConsole">
+                                    <input type="hidden" name="idConSuppr" id="idConSuppr" value="'.$idSuppr.'">
+                                    <tr>
+	                                    <td><button class="boutton-standard btn-oui" type="submit">Oui</button></td>
+                                </form>
+                                
+                                <form name="validSuppr-form" id="validSuppr-form" method="POST" action="index.php?uc=consoles">
+                                        <td><button class="boutton-standard btn-non" type="submit">Non</button></td>
+                                </form>
+                                    </tr>
+                                </form>
+                            </table>
                         </div>';
                     }
                     else
                     {
                         echo '<div class="element-grid">
                             <p class="text-style-standard texte-consoles"><span class="texte-souligne">Nom :</span> '.$uneConsole['nomCons'].'</p>
-                            <p class="text-style-standard texte-consoles"><span class="texte-souligne">Marque :</span> '.$uneConsole['libelleMarque'].'</p>
-                            <table>
-                                <tr>
-                                    <td>
-                                        <form name="modif-console-form" id="modif-console-form" method="POST" action="index.php?uc=consoles&action=modifConsole">
-                                            <input type="hidden" name="idConsole" id="idConsole" value="'.$uneConsole['idCons'].'">
-                                            <button class="boutton-standard btn-modif" type="submit">Modifier</button>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <form name="suppr-console-form" id="suppr-console-form" method="POST" action="index.php?uc=consoles&action=supprConsole">
-                                            <input type="hidden" name="idConsole" id="idConsole" value="'.$uneConsole['idCons'].'">
-                                            <button class="boutton-standard btn-suppr" type="submit">Supprimer</button>  
-                                        </form>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>';
+                            <p class="text-style-standard texte-consoles"><span class="texte-souligne">Marque :</span> '.$uneConsole['libelleMarque'].'</p>';
+                        if (isset($_SESSION['droit']) && $_SESSION['droit'] == "2")
+                        {
+                            echo '<table>
+                                    <tr>
+                                        <td>
+                                            <form name="modif-console-form" id="modif-console-form" method="POST" action="index.php?uc=consoles&action=modifConsole">
+                                                <input type="hidden" name="idConsole" id="idConsole" value="'.$uneConsole['idCons'].'">
+                                                <button class="boutton-standard btn-modif" type="submit">Modifier</button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form name="suppr-console-form" id="suppr-console-form" method="POST" action="index.php?uc=consoles&action=supprConsole">
+                                                <input type="hidden" name="idConsole" id="idConsole" value="'.$uneConsole['idCons'].'">
+                                                <button class="boutton-standard btn-suppr" type="submit">Supprimer</button>  
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </table>';
+                        }
+                        echo '</div>';
                     }
                 }
             
@@ -83,10 +100,13 @@
                     }
                     else
                     {
-                        echo '<a href="index.php?uc=consoles&action=ajoutConsole">
-                            <img class="plus-console" src="includes/img/plus.png">
-                            Ajouter une nouvelle console
-                        </a>';
+                        if (isset($_SESSION['droit']) && $_SESSION['droit'] == "2")
+                        {
+                            echo '<a href="index.php?uc=consoles&action=ajoutConsole">
+                                <img class="plus-console" src="includes/img/plus.png">
+                                Ajouter une nouvelle console
+                            </a>';
+                        }
                     }
             echo '</div>
         </div>';

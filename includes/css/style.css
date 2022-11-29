@@ -521,3 +521,13 @@ body{
 {
     margin-bottom: 10px;
 }
+
+.btn-non
+{
+    margin-left: 60px;
+}
+
+.btn-oui
+{
+    margin-right: 60px;
+}
