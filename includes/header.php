@@ -19,7 +19,7 @@
                     <ul>
                         <li><a class="lien-menu" href="#">Jeux</a></li>
                         <li>|</li>
-                        <li><a class="lien-menu" href="#">Consoles</a></li>
+                        <li><a class="lien-menu" href="index.php?uc=consoles">Consoles</a></li>
                         <li>|</li>
                         <li><a class="lien-menu" href="#">Marques</a></li>
                         <li>|</li>
@@ -27,10 +27,24 @@
                     </ul>
                 </nav>
             </div>
-            <div class="grid-nav-deco">
-                <img class="menu-deco-logo" src="includes/img/iconeCompte-bleu.png">
-            </div>
-            <div class="grid-nav-deco-texte">
-                <a class="lien-deco" href="index.php?uc=authentification">Connexion</a>
-            </div>
+            <?php
+                if (isset($_SESSION['droit']))
+                {
+                    echo '<div class="grid-nav-deco">
+                        <a class="lien-deco" href="index.php?uc=deconnexion"><img class="menu-deco-logo" src="includes/img/iconeCompte-bleu.png"></a>
+                    </div>
+                    <div class="grid-nav-deco-texte">
+                        <a class="lien-deco" href="index.php?uc=deconnexion">'.$_SESSION['email'].' (se déconnecter)</a>
+                    </div>';
+                }
+                else
+                {
+                    echo '<div class="grid-nav-deco">
+                        <a class="lien-co" href="index.php?uc=authentification"><img class="menu-deco-logo" src="includes/img/iconeCompte-bleu.png"></a>
+                    </div>
+                    <div class="grid-nav-deco-texte">
+                        <a class="lien-co" href="index.php?uc=authentification">Connexion</a>
+                    </div>';
+                }
+            ?>
         </div>
