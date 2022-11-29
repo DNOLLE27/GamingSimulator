@@ -27,37 +27,37 @@
         
                 echo '<table class="form-auth">
                     <tr>
-                        <td><input name="adrEmail" id="adrEmail" type="email" placeholder="Saisissez votre adresse e-mail" size="24" maxlength="50"><td>
+                        <td><input name="adrEmail" id="adrEmail" type="email" placeholder="Saisissez votre adresse e-mail" size="24" maxlength="50"></td>
                     </tr>';
 
                 if ($typeFormulaire == "inscription") 
                 { 
                     echo '<tr>
-                        <td><input name="adrEmailVerif" id="adrEmailVerif" type="email" placeholder="Vérifier votre adresse e-mail" size="24" maxlength="50"><td>
+                        <td><input name="adrEmailVerif" id="adrEmailVerif" type="email" placeholder="Vérifier votre adresse e-mail" size="24" maxlength="50"></td>
                     </tr>'; 
                 }
 
                 echo '<tr>
-                    <td><input name="mdp" id="mdp" type="password" placeholder="Saisissez votre mot de passe" size="24" maxlength="35"><td>
+                    <td><input name="mdp" id="mdp" type="password" placeholder="Saisissez votre mot de passe" size="24" maxlength="35"></td>
                 </tr>';
 
                 if ($typeFormulaire == "inscription") 
                 { 
                     echo '<tr>
-                        <td><input name="mdpVerif" id="mdpVerif" type="password" placeholder="Vérifier votre mot de passe" size="24" maxlength="35"><td>
+                        <td><input name="mdpVerif" id="mdpVerif" type="password" placeholder="Vérifier votre mot de passe" size="24" maxlength="35"></td>
                     </tr>'; 
                 }
             
                 if ($typeFormulaire == "inscription")
                 {
                     echo '<tr>
-                        <td><button type="submit">Inscription</button><td>
+                        <td><button type="submit">Inscription</button></td>
                     </tr>';
                 }
                 else
                 {
                     echo '<tr>
-                        <td><button type="submit">Connexion</button><td>
+                        <td><button type="submit">Connexion</button></td>
                     </tr>';
                 }
             
@@ -94,6 +94,18 @@
             if (isset($messageReussi) && $messageReussi != "")
             {
                 echo '<p class="msgReu">'.$messageReussi.'</p>';
+
+                if ($_REQUEST['action'] == "verifInscr")
+                {
+                    echo '<form name="retour-form" id="retour-form" method="POST" action="index.php?uc=authentification&action=connexion">';
+                }
+                else
+                {
+                    echo '<form name="retour-form" id="retour-form" method="POST" action="index.php">';
+                }
+
+                echo '<button type="submit">Ok</button>
+                </form>';
             }
         }
     ?>

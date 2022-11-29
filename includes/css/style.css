@@ -112,10 +112,18 @@ body{
     font-family: retro;
 }
 
-.nom-ent, .lien-deco
+.nom-ent, .lien-co
 {
     font-size: 25px;
     text-decoration: none;
+}
+
+.lien-deco
+{
+    display: block;
+    text-decoration: none;
+    margin-top: 10px;
+    font-size: 15px;
 }
 
 .menu-deco-logo
@@ -137,8 +145,8 @@ body{
 
 
 .imgMarque{
-    width: 100%;
-    height: 100%;
+    width: 270px;
+    height: 150px;
 }
 
 .boxMarque {
@@ -188,7 +196,7 @@ body{
 .auth-div h1
 {
     color: rgb(0,255,255);
-    font-family: retro-gaming;
+    font-family: Retro;
     text-align: center;
     margin-top: 40px;
 }
@@ -196,7 +204,7 @@ body{
 .auth-div p
 {
     color: rgb(0,255,255);
-    font-family: retro-gaming;
+    font-family: Retro;
     text-align: center;
     font-size: 12px;
     margin-bottom: 20px;
@@ -209,7 +217,7 @@ body{
     margin-right: auto;
     margin-top: 20px;
 
-    font-family: retro-gaming;
+    font-family: Retro;
     color: rgb(0,255,255);
     background-color: rgb(0, 0, 0);
     border: solid 2px rgb(0,255,255);
@@ -258,7 +266,7 @@ body{
     margin-top: 20px;
     margin-bottom: 20px;
 
-    font-family: retro-gaming;
+    font-family: Retro;
     color: rgb(0,255,255);
     background-color: rgb(0, 0, 0);
     border: solid 2px rgb(0,255,255);
@@ -301,12 +309,14 @@ body{
 
 .msgReu
 {
+    font-family: Retro;
     margin-top: 20px !important;
     color: rgb(0, 255, 0) !important;
 }
 
 .msgErr
 {
+    font-family: Retro;
     margin-top: 20px !important;
     color: rgb(255, 0, 0) !important;
 }
@@ -315,6 +325,10 @@ body{
 {
     color: rgb(0, 0, 255) !important;
     margin-bottom: -20px !important;
+}
+
+.ajoutMarque{
+    color: rgb(255, 0, 0) ;
 }
 
 .gridPrincipalJeux{
@@ -343,4 +357,244 @@ body{
 
 .nomJeux{
     grid-column: 2/4;
+}
+
+.consoles-grid
+{
+    margin-top: 35px;
+    display: grid;
+    grid-template: 1fr / 1fr 1fr 1fr 1fr;
+    grid-gap: 50px;
+}
+
+.text-style-standard
+{
+    color: rgb(0,255,255);
+    font-family: Retro;
+}
+
+.texte-souligne
+{
+    text-decoration: underline;
+}
+
+.texte-consoles
+{
+    text-align: center;
+}
+
+.element-grid
+{
+    text-align: center;
+    border: solid 2px rgb(0,255,255);
+    border-radius: 10px;
+    background-color: rgb(0, 0, 0);
+}
+
+.plus-console
+{
+    display: block;
+    height: 70px;
+    width: 70px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.element-grid a
+{
+    font-family: Retro;
+}
+
+.element-grid a:link
+{
+    color: rgb(0,255,255);
+}
+
+.element-grid a:visited
+{
+    color: rgb(0, 255, 255);
+}
+
+.element-grid a:hover
+{
+    color: rgb(0, 90, 90);
+}
+
+.element-grid a:active
+{
+    color: rgb(0, 150, 150);
+}
+
+.ajout-console-table th
+{
+    color: rgb(0,255,255);
+    font-family: Retro;
+    text-decoration: underline;
+    text-align: right;
+}
+
+#nomConsole
+{
+    width: 71px;
+}
+
+#marqueConsole
+{
+    display: block;
+    margin-left: 0px;
+}
+
+.ajout-console-table
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ajout-console-bouton
+{
+    margin-top: 10px;
+    margin-bottom: 6px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-family: Retro;
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.ajout-console-bouton:hover 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.ajout-console-bouton:focus 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.ajout-console-bouton:active 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.ajout-console-bouton:focus:hover
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.ajout-console-bouton:focus:active 
+{
+    color: rgb(0, 90, 90);
+    background-color: rgb(0,255,255);
+    border: solid 2px rgb(0, 90, 90);
+}
+
+.ajout-console-table select, .ajout-console-table input
+{
+    margin-top: 6px;
+}
+
+.element-grid table
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.suppr-lien
+{
+    margin-left: 50px;
+}
+
+.modif-lien
+{
+    margin-right: 50px;
+}
+
+.messErrReu
+{
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 625px;
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0, 255, 255);
+}
+
+.boutton-standard
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.boutton-standard:hover 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.boutton-standard:focus 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.boutton-standard:active 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.boutton-standard:focus:hover
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.boutton-standard:focus:active 
+{
+    color: rgb(0, 90, 90);
+    background-color: rgb(0,255,255);
+    border: solid 2px rgb(0, 90, 90);
+}
+
+.btn-modif
+{
+    margin-right: 30px;
+}
+
+.btn-suppr
+{
+    margin-left: 30px;
+}
+
+
+.btn-suppr, .btn-modif
+{
+    margin-bottom: 10px;
+}
+
+.btn-non
+{
+    margin-left: 60px;
+}
+
+.btn-oui
+{
+    margin-right: 60px;
 }

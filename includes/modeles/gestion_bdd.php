@@ -146,6 +146,78 @@
         return $curseur;
     }
 
+    function getLesConsoles()
+    {
+        require "connexion.php";
+        
+        $sql="SELECT idCons, nomCons, libelleMarque FROM console INNER JOIN marque ON marqueCons = idMarque";
+        $exec=$bdd->query($sql);
+        $lesConsoles=$exec->fetchAll();
+
+        return $lesConsoles;
+    }
+
+    function getLesMarques()
+    {
+        require "connexion.php";
+        
+        $sql="SELECT idMarque, libelleMarque FROM marque";
+        $exec=$bdd->query($sql);
+        $lesMarques=$exec->fetchAll();
+
+        return $lesMarques;
+    }
+
+    function verifConoleExiste($nom,$marque)
+    {
+        require "connexion.php";
+
+        $sql="SELECT nomCons FROM console WHERE nomCons = '$nom' AND marqueCons = $marque";
+        $exec=$bdd->query($sql);
+
+        $nbCons = $exec->rowCount();
+
+        if ($nbCons == 0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    function verifNomConsole($nom)
+    {
+        $verifNomConsole = false;
+        $regex = "/^[a-zA-Z0-9][a-zA-Z0-9 ]{0,15}[a-zA-Z0-9]$/";
+    
+        if (preg_match($regex,$nom))
+        {
+            $verifNomConsole = true;
+        }
+        
+        return $verifNomConsole;
+    }
+
+    function ajoutConsole($nom,$marque)
+    {
+        require "connexion.php";
+
+        $sql="INSERT INTO console (nomCons,marqueCons) VALUES ('$nom',$marque)";
+        $exec=$bdd->prepare($sql);
+        $exec->execute();
+    }
+
+    function supprConsole($id)
+    {
+        require "connexion.php";
+
+        $sql="DELETE FROM console WHERE idCons = $id";
+        $exec=$bdd->prepare($sql);
+        $exec->execute();
+    }
+
 
 
     function lEtat($id)
@@ -194,4 +266,48 @@
         $curseur=$exec->fetchAll();
         return $curseur;
     }
+
+
+    function marqueInsertion($libelle, $logoMarque) {
+        require "connexion.php" ;
+        $sql = "insert into marque (libelleMarque, logoMarque) values ('$libelle', '$logoMarque')" ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetch() ;
+        return $curseur;
+    }
+
+    function marqueModification($id, $libelle, $logoMarque) {
+        require "connexion.php" ;
+        $sql = "update marque "
+                . "set libelleMarque = '$libelle', logoMarque = '$logoMarque' "
+                . "where idMarque = $id " ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetch() ;
+        return $curseur;
+    }
+    
+    function supMarque($id) {
+        require "connexion.php" ;
+        $sql = "delete from marque "
+                . "where idMarque = $id " ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetch() ;
+        return $curseur;
+    }
+
+    function existeMarque($libelle){
+        require "connexion.php" ;
+        $sql = "select libelleMarque "
+                . "from marque "
+                . "where libelleMarque = '$libelle'" ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll() ;
+        return $curseur;
+    }
+
+
 ?>
