@@ -26,7 +26,6 @@
                 . '<td>' .$lEtat['libelleEtat']. '</td>'
                 . '<td>' .$lEtat['descriptionEtat']. '</td>'
                 . '<td>' . '<a href="index.php?uc=marque&action=modifier&id='.$lEtat['idEtat'].'"><button>Modifier</button></a>' . '</td>'
-                . '<td>' . '<a href="index.php?uc=marque&action=supprimer&id='.$lEtat['idEtat'].'"><button>Supprimer</button></a>' . '</td>'
                 . '</tr>';
             
             

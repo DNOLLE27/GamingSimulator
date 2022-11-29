@@ -157,16 +157,6 @@
         return $lesConsoles;
     }
 
-    function getLesMarques()
-    {
-        require "connexion.php";
-        
-        $sql="SELECT idMarque, libelleMarque FROM marque";
-        $exec=$bdd->query($sql);
-        $lesMarques=$exec->fetchAll();
-
-        return $lesMarques;
-    }
 
     function verifConoleExiste($nom,$marque)
     {
@@ -303,6 +293,17 @@
         $sql = "select libelleMarque "
                 . "from marque "
                 . "where libelleMarque = '$libelle'" ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll() ;
+        return $curseur;
+    }
+
+    function verifSupprMarque(){
+        require "connexion.php" ;
+        $sql = "select idMarque "
+                . "from marque "
+                . "where idMarque not in (select marqueType from type_console) " ;
         $exec=$bdd->prepare($sql) ;
         $exec->execute() ;
         $curseur=$exec->fetchAll() ;

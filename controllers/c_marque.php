@@ -49,39 +49,48 @@ else
                 . '<p class="erreur">La marque ' . $marqueAjoutLibelle . ' existe déja !</p>' 
                 . '<br><a href="index.php?uc=marque&action=ajouter"> Retour </a>'  ;
         break;
-    }
-    case "modifier" : {
+        }
+        case "modifier" : {
         $lesMarques = getLesMarques() ;
         require "views/v_marque.php" ; 
         break ;             
-    }
-
-    case "valider" : {
-        $modifMarqueLibelle = $_POST['modifMarqueLibelle'];
-        $modifMarqueLogo = $_POST['modifMarqueLogo'];
-        if($modifMarqueLibelle == "" || $modifMarqueLogo == "")
-        {
-            echo '<div class="home">'
-            . '<p class="erreur">Veuillez saisir le nom de votre marque !</p>'
-            . '<a href="index.php?uc=marque&action=modifier"> Retour </a>'  ;
-
         }
-        else
-            if(existeMarque($modifMarqueLibelle) == false)
-            {
 
-                marqueModification($id, $modifMarqueLibelle, $modifMarqueLogo) ;
-                echo '<div class="home">'  
-                . '<p class="valider">La marque se nomme désormais  ' . $modifMarqueLibelle . ' !</p>' 
-                . '<br><a href="index.php?uc=marque"> Retour </a>' ;
-                
+        case "valider" : {
+            $modifMarqueLibelle = $_POST['modifMarqueLibelle'];
+            $modifMarqueLogo = $_POST['modifMarqueLogo'];
+            if($modifMarqueLibelle == "" || $modifMarqueLogo == "")
+            {
+                echo '<div class="home">'
+                . '<p class="erreur">Veuillez saisir le nom de votre marque !</p>'
+                . '<a href="index.php?uc=marque&action=modifier"> Retour </a>'  ;
+
             }
             else
-                echo '<div class="home">'
-                . '<p class="erreur">La marque ' . $modifMarqueLibelle . ' existe déja !</p>' 
-                . '<br><a href="index.php?uc=marque&action=modifier"> Retour </a>'  ;
-                            
-        break;
-    }
+                if(existeMarque($modifMarqueLibelle) == false)
+                {
+
+                    marqueModification($id, $modifMarqueLibelle, $modifMarqueLogo) ;
+                    echo '<div class="home">'  
+                    . '<p class="valider">La marque se nomme désormais  ' . $modifMarqueLibelle . ' !</p>' 
+                    . '<br><a href="index.php?uc=marque"> Retour </a>' ;
+                    
+                }
+                else
+                    echo '<div class="home">'
+                    . '<p class="erreur">La marque ' . $modifMarqueLibelle . ' existe déja !</p>' 
+                    . '<br><a href="index.php?uc=marque&action=modifier"> Retour </a>'  ;
+                                
+            break;
+        }
+
+        case "supprimer" : {
+            
+            supMarque($id) ;
+            echo '<div class="home">'  
+                    . '<p class="valider">La marque sélectionné a bien été supprimé !</p>' 
+                    . '<br><a href="index.php?uc=marque"> Retour </a>' ;
+            break;
+        }
 }
 ?>

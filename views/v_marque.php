@@ -33,9 +33,13 @@
             echo 
             '<div class="boxMarque">' 
             . '<img class="imgMarque" src="'. $laMarque['logoMarque'].'">'
-            . '<td>' . '<a href="index.php?uc=marque&action=modifier&id='.$laMarque['idMarque'].'"><button>Modifier</button></a>' . '</td>'
-            . '<td>' . '<a href="index.php?uc=marque&action=supprimer&id='.$laMarque['idMarque'].'"><button>Supprimer</button></a>' . '</td>'
-            . '</div>';
+            . '<td>' . '<a href="index.php?uc=marque&action=modifier&id='.$laMarque['idMarque'].'"><button>Modifier</button></a>' . '</td>';
+            if($laMarque['idMarque'] > 6){
+                echo '<td>' . '<a href="index.php?uc=marque&action=supprimer&id='.$laMarque['idMarque'].'"><button>Supprimer</button></a>' . '</td>';
+            }
+                
+            
+            echo '</div>';
 }
     ?>  
     </div
