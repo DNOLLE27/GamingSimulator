@@ -3,7 +3,7 @@
 
 
 <div id="Home_title">Gestion des marques</div>
-    <p>Ajouter une marque : <a href="index.php?uc=marque&action=ajouter"><img src="includes/img/plus2.png" width=" 20px" /></a></p>
+    <p class="ajoutMarque">Ajouter une marque : <a href="index.php?uc=marque&action=ajouter"><img src="includes/img/amongus.png" width=" 20px" /></a></p>
     
         
 
@@ -20,13 +20,21 @@
             {
                 echo 
             '<div class="boxMarque">' 
-            . '<img class="imgMarque" src="includes/img/'. $laMarque['logoMarque'].'">'
-            . '</div>';
+            . '<form method="POST" action="index.php?uc=marque&action=valider&id='.$laMarque['idMarque'].'">'
+                . '<td>' . '<input type="text" size="15" maxlength="40" name="modifMarqueLibelle" value="' . $laMarque['libelleMarque'] . '" >' . '</td>'
+                . '<td>' . '<input type="text" size="15" maxlength="40" name="modifMarqueLogo" value="' . $laMarque['logoMarque'] . '" >' . '</td>'
+                . '<td>' . '<input type="submit" value="Valider" >' . '</td>'
+                . '<td>' 
+                . '</tr>'
+                . '</form>' 
+                . '</div>';
                         
             }else
             echo 
             '<div class="boxMarque">' 
             . '<img class="imgMarque" src="'. $laMarque['logoMarque'].'">'
+            . '<td>' . '<a href="index.php?uc=marque&action=modifier&id='.$laMarque['idMarque'].'"><button>Modifier</button></a>' . '</td>'
+            . '<td>' . '<a href="index.php?uc=marque&action=supprimer&id='.$laMarque['idMarque'].'"><button>Supprimer</button></a>' . '</td>'
             . '</div>';
 }
     ?>  
