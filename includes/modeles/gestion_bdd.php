@@ -128,7 +128,18 @@
         $rnd = rand(0,18);
         require "connexion.php";
 
-        $sql="SELECT nomJeux, imageJeux, nomCons FROM jeux INNER JOIN console ON consoleJeux = idCons LIMIT 4 OFFSET $rnd";
+        $sql="SELECT nomJeux, imageJeux, libelleType FROM jeux INNER JOIN type_console ON typeConsoleJeux = idType LIMIT 4 OFFSET $rnd";
+        $exec=$bdd->query($sql);
+        $curseur=$exec->fetchAll();
+
+        return $curseur;
+    }
+
+    function consoleAccueil(){
+        $rnd = rand(0,10);
+        require "connexion.php";
+
+        $sql="SELECT descriptionCons, imageCons FROM console LIMIT 4 OFFSET $rnd";
         $exec=$bdd->query($sql);
         $curseur=$exec->fetchAll();
 
@@ -165,12 +176,22 @@
     {
         require "connexion.php";
 
-        $sql = "select idMarque, libelleMarque, imageMarque "
+        $sql = "select idMarque, libelleMarque, logoMarque "
             . "from marque " ;
         $exec=$bdd->query($sql) ;
         $exec->execute() ;
         $curseur=$exec->fetchAll();
         return $curseur;
+    }
 
+    function getLesJeux()
+    {
+        require "connexion.php";
+
+        $sql="SELECT nomJeux, imageJeux, libelleType FROM jeux INNER JOIN type_console ON typeConsoleJeux = idType";
+        $exec=$bdd->query($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll();
+        return $curseur;
     }
 ?>

@@ -17,11 +17,11 @@
             <div class="grid-nav-menu">
                 <nav>
                     <ul>
-                        <li><a class="lien-menu" href="#">Jeux</a></li>
+                        <li><a class="lien-menu" href="index.php?uc=jeux">Jeux</a></li>
                         <li>|</li>
                         <li><a class="lien-menu" href="#">Consoles</a></li>
                         <li>|</li>
-                        <li><a class="lien-menu" href="#">Marques</a></li>
+                        <li><a class="lien-menu" href="index.php?uc=marque">Marques</a></li>
                         <li>|</li>
                         <li><a class="lien-menu" href="#">Etats</a></li>
                     </ul>
