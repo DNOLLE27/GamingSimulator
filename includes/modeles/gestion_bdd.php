@@ -128,7 +128,18 @@
         $rnd = rand(0,18);
         require "connexion.php";
 
-        $sql="SELECT nomJeux, imageJeux, nomCons FROM jeux INNER JOIN console ON consoleJeux = idCons LIMIT 4 OFFSET $rnd";
+        $sql="SELECT nomJeux, imageJeux, libelleType FROM jeux INNER JOIN type_console ON typeConsoleJeux = idType LIMIT 4 OFFSET $rnd";
+        $exec=$bdd->query($sql);
+        $curseur=$exec->fetchAll();
+
+        return $curseur;
+    }
+
+    function consoleAccueil(){
+        $rnd = rand(0,10);
+        require "connexion.php";
+
+        $sql="SELECT descriptionCons, imageCons FROM console LIMIT 4 OFFSET $rnd";
         $exec=$bdd->query($sql);
         $curseur=$exec->fetchAll();
 
@@ -206,4 +217,97 @@
         $exec=$bdd->prepare($sql);
         $exec->execute();
     }
+
+
+
+    function lEtat($id)
+    {
+        require "connexion.php";
+
+        $sql="SELECT idEtat, libelleEtat, descriptionEtat FROM etat WHERE idEtat = '$id'";
+        $exec=$bdd->query($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetch();
+        return $curseur;
+
+    }
+
+    function getLesEtats()
+    {
+        require "connexion.php";
+
+        $sql = "select idEtat, libelleEtat, descriptionEtat "
+            . "from etat " ;
+        $exec=$bdd->query($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll();
+        return $curseur;
+    }
+
+    function getLesMarques()
+    {
+        require "connexion.php";
+
+        $sql = "select idMarque, libelleMarque, logoMarque "
+            . "from marque " ;
+        $exec=$bdd->query($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll();
+        return $curseur;
+    }
+
+    function getLesJeux()
+    {
+        require "connexion.php";
+
+        $sql="SELECT nomJeux, imageJeux, libelleType FROM jeux INNER JOIN type_console ON typeConsoleJeux = idType";
+        $exec=$bdd->query($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll();
+        return $curseur;
+    }
+
+
+    function marqueInsertion($libelle, $logoMarque) {
+        require "connexion.php" ;
+        $sql = "insert into marque (libelleMarque, logoMarque) values ('$libelle', '$logoMarque')" ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetch() ;
+        return $curseur;
+    }
+
+    function marqueModification($id, $libelle, $logoMarque) {
+        require "connexion.php" ;
+        $sql = "update marque "
+                . "set libelleMarque = '$libelle', logoMarque = '$logoMarque' "
+                . "where idMarque = $id " ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetch() ;
+        return $curseur;
+    }
+    
+    function supMarque($id) {
+        require "connexion.php" ;
+        $sql = "delete from marque "
+                . "where idMarque = $id " ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetch() ;
+        return $curseur;
+    }
+
+    function existeMarque($libelle){
+        require "connexion.php" ;
+        $sql = "select libelleMarque "
+                . "from marque "
+                . "where libelleMarque = '$libelle'" ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll() ;
+        return $curseur;
+    }
+
+
 ?>
