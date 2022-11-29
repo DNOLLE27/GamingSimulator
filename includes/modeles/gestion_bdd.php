@@ -165,7 +165,7 @@
     {
         require "connexion.php";
 
-        $sql = "select idMarque, libelleMarque, imageMarque "
+        $sql = "select idMarque, libelleMarque, logoMarque "
             . "from marque " ;
         $exec=$bdd->query($sql) ;
         $exec->execute() ;
@@ -173,4 +173,48 @@
         return $curseur;
 
     }
+
+
+    function marqueInsertion($libelle, $logoMarque) {
+        require "connexion.php" ;
+        $sql = "insert into marque (libelleMarque, logoMarque) values ('$libelle', '$logoMarque')" ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetch() ;
+        return $curseur;
+    }
+
+    function marqueModification($id, $libelle, $logoMarque) {
+        require "connexion.php" ;
+        $sql = "update marque "
+                . "set libelleMarque = '$libelle', logoMarque = '$logoMarque' "
+                . "where idMarque = $id " ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetch() ;
+        return $curseur;
+    }
+    
+    function supMarque($id) {
+        require "connexion.php" ;
+        $sql = "delete from marque "
+                . "where idMarque = $id " ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetch() ;
+        return $curseur;
+    }
+
+    function existeMarque($libelle){
+        require "connexion.php" ;
+        $sql = "select libelleMarque "
+                . "from marque "
+                . "where libelleMarque = '$libelle'" ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll() ;
+        return $curseur;
+    }
+
+
 ?>

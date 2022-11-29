@@ -21,9 +21,9 @@
                         <li>|</li>
                         <li><a class="lien-menu" href="#">Consoles</a></li>
                         <li>|</li>
-                        <li><a class="lien-menu" href="#">Marques</a></li>
+                        <li><a class="lien-menu" href="index.php?uc=marque">Marques</a></li>
                         <li>|</li>
-                        <li><a class="lien-menu" href="#">Etats</a></li>
+                        <li><a class="lien-menu" href="index.php?uc=etat">Etats</a></li>
                     </ul>
                 </nav>
             </div>
