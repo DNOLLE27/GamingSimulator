@@ -7,14 +7,13 @@
     {
         $action = $_REQUEST['action'];
     }
-
+    
     switch($action)
-    {
+    {       
         case 'afficher' : 
         { 
-            $jeuxAccueil = jeuxAccueil();
-            $consoleAccueil = consoleAccueil();
-            require "views/v_accueil.php"; 
+            $lesEtats = getlesEtats();
+            require "views/v_etat.php"; 
             break; 
         }
     }

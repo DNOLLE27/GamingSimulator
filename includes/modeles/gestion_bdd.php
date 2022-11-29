@@ -128,10 +128,70 @@
         $rnd = rand(0,18);
         require "connexion.php";
 
-        $sql="SELECT nomJeux, imageJeux, nomCons FROM jeux INNER JOIN console ON consoleJeux = idCons LIMIT 4 OFFSET $rnd";
+        $sql="SELECT nomJeux, imageJeux, libelleType FROM jeux INNER JOIN type_console ON typeConsoleJeux = idType LIMIT 4 OFFSET $rnd";
         $exec=$bdd->query($sql);
         $curseur=$exec->fetchAll();
 
+        return $curseur;
+    }
+
+    function consoleAccueil(){
+        $rnd = rand(0,10);
+        require "connexion.php";
+
+        $sql="SELECT descriptionCons, imageCons FROM console LIMIT 4 OFFSET $rnd";
+        $exec=$bdd->query($sql);
+        $curseur=$exec->fetchAll();
+
+        return $curseur;
+    }
+
+
+
+    function lEtat($id)
+    {
+        require "connexion.php";
+
+        $sql="SELECT idEtat, libelleEtat, descriptionEtat FROM etat WHERE idEtat = '$id'";
+        $exec=$bdd->query($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetch();
+        return $curseur;
+
+    }
+
+    function getLesEtats()
+    {
+        require "connexion.php";
+
+        $sql = "select idEtat, libelleEtat, descriptionEtat "
+            . "from etat " ;
+        $exec=$bdd->query($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll();
+        return $curseur;
+    }
+
+    function getLesMarques()
+    {
+        require "connexion.php";
+
+        $sql = "select idMarque, libelleMarque, logoMarque "
+            . "from marque " ;
+        $exec=$bdd->query($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll();
+        return $curseur;
+    }
+
+    function getLesJeux()
+    {
+        require "connexion.php";
+
+        $sql="SELECT nomJeux, imageJeux, libelleType FROM jeux INNER JOIN type_console ON typeConsoleJeux = idType";
+        $exec=$bdd->query($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll();
         return $curseur;
     }
 ?>

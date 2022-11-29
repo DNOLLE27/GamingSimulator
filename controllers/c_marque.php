@@ -12,10 +12,9 @@
     {
         case 'afficher' : 
         { 
-            $jeuxAccueil = jeuxAccueil();
-            $consoleAccueil = consoleAccueil();
-            require "views/v_accueil.php"; 
-            break; 
+            $lesMarques = getlesMarques();
+            require "views/v_marque.php"; 
+            break ; 
         }
     }
 ?>
