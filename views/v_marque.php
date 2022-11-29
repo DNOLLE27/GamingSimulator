@@ -20,13 +20,13 @@
             {
                 echo 
             '<div class="boxMarque">' 
-            . '<img class="imgMarque" src="includes/img/'. $laMarque['imageMarque'].'">'
+            . '<img class="imgMarque" src="includes/img/'. $laMarque['logoMarque'].'">'
             . '</div>';
                         
             }else
             echo 
             '<div class="boxMarque">' 
-            . '<img class="imgMarque" src="'. $laMarque['imageMarque'].'">'
+            . '<img class="imgMarque" src="'. $laMarque['logoMarque'].'">'
             . '</div>';
 }
     ?>  
