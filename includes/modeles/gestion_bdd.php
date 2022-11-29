@@ -150,29 +150,18 @@
     {
         require "connexion.php";
         
-        $sql="SELECT idCons, nomCons, libelleMarque FROM console INNER JOIN marque ON marqueCons = idMarque";
+        $sql="SELECT idCons, descriptionCons, imageCons, libelleMarque FROM console INNER JOIN type_console ON typeCons = idType INNER JOIN marque ON marqueType = idMarque";
         $exec=$bdd->query($sql);
         $lesConsoles=$exec->fetchAll();
 
         return $lesConsoles;
     }
 
-    function getLesMarques()
-    {
-        require "connexion.php";
-        
-        $sql="SELECT idMarque, libelleMarque FROM marque";
-        $exec=$bdd->query($sql);
-        $lesMarques=$exec->fetchAll();
-
-        return $lesMarques;
-    }
-
     function verifConoleExiste($nom,$marque)
     {
         require "connexion.php";
 
-        $sql="SELECT nomCons FROM console WHERE nomCons = '$nom' AND marqueCons = $marque";
+        $sql="SELECT descriptionCons FROM console INNER JOIN type_console ON typeCons = idType WHERE descriptionCons = '$nom' AND marqueType = $marque";
         $exec=$bdd->query($sql);
 
         $nbCons = $exec->rowCount();
