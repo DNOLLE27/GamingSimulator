@@ -128,11 +128,94 @@
         $rnd = rand(0,18);
         require "connexion.php";
 
-        $sql="SELECT nomJeux, imageJeux, nomCons FROM jeux INNER JOIN console ON consoleJeux = idCons LIMIT 4 OFFSET $rnd";
+        $sql="SELECT nomJeux, imageJeux, libelleType FROM jeux INNER JOIN type_console ON typeConsoleJeux = idType LIMIT 4 OFFSET $rnd";
         $exec=$bdd->query($sql);
         $curseur=$exec->fetchAll();
 
         return $curseur;
+    }
+
+    function consoleAccueil(){
+        $rnd = rand(0,10);
+        require "connexion.php";
+
+        $sql="SELECT descriptionCons, imageCons FROM console LIMIT 4 OFFSET $rnd";
+        $exec=$bdd->query($sql);
+        $curseur=$exec->fetchAll();
+
+        return $curseur;
+    }
+
+    function getLesConsoles()
+    {
+        require "connexion.php";
+        
+        $sql="SELECT idCons, nomCons, libelleMarque FROM console INNER JOIN marque ON marqueCons = idMarque";
+        $exec=$bdd->query($sql);
+        $lesConsoles=$exec->fetchAll();
+
+        return $lesConsoles;
+    }
+
+    function getLesMarques()
+    {
+        require "connexion.php";
+        
+        $sql="SELECT idMarque, libelleMarque FROM marque";
+        $exec=$bdd->query($sql);
+        $lesMarques=$exec->fetchAll();
+
+        return $lesMarques;
+    }
+
+    function verifConoleExiste($nom,$marque)
+    {
+        require "connexion.php";
+
+        $sql="SELECT nomCons FROM console WHERE nomCons = '$nom' AND marqueCons = $marque";
+        $exec=$bdd->query($sql);
+
+        $nbCons = $exec->rowCount();
+
+        if ($nbCons == 0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    function verifNomConsole($nom)
+    {
+        $verifNomConsole = false;
+        $regex = "/^[a-zA-Z0-9][a-zA-Z0-9 ]{0,15}[a-zA-Z0-9]$/";
+    
+        if (preg_match($regex,$nom))
+        {
+            $verifNomConsole = true;
+        }
+        
+        return $verifNomConsole;
+    }
+
+    function ajoutConsole($nom,$marque)
+    {
+        require "connexion.php";
+
+        $sql="INSERT INTO console (nomCons,marqueCons) VALUES ('$nom',$marque)";
+        $exec=$bdd->prepare($sql);
+        $exec->execute();
+    }
+
+    function supprConsole($id)
+    {
+        require "connexion.php";
+
+        $sql="DELETE FROM console WHERE idCons = $id";
+        $exec=$bdd->prepare($sql);
+        $exec->execute();
     }
 
 
@@ -171,7 +254,17 @@
         $exec->execute() ;
         $curseur=$exec->fetchAll();
         return $curseur;
+    }
 
+    function getLesJeux()
+    {
+        require "connexion.php";
+
+        $sql="SELECT nomJeux, imageJeux, libelleType FROM jeux INNER JOIN type_console ON typeConsoleJeux = idType";
+        $exec=$bdd->query($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll();
+        return $curseur;
     }
 
 
