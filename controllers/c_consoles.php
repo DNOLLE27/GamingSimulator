@@ -20,7 +20,7 @@
         case 'ajoutConsole' :
         {
             $lesConsoles = getLesConsoles();
-            $lesMarques = getLesMarques();
+            $lesTypes = getLesTypes();
             require "views/v_consoles.php"; 
             break; 
         }
@@ -28,7 +28,7 @@
         case 'modifConsole' :
         {
             $lesConsoles = getLesConsoles();
-            $lesMarques = getLesMarques();
+            $lesTypes = getLesTypes();
             $idModif = $_POST['idConsole'];
             require "views/v_consoles.php"; 
             break; 
@@ -55,16 +55,16 @@
         case 'verifAjoutConsole' :
         {
             $nomConsole = $_POST['nomConsole'];
-            $marqueConsole = $_POST['marqueConsole'];
+            $typeConsole = $_POST['typeConsole'];
             $lienImageConsole = $_POST['lienImage'];
             $messageErr = "";
             $messageReu = "";
 
             if (!empty($nomConsole) && verifNomConsole($nomConsole))
             {
-                if (!verifConoleExiste($nomConsole,$marqueConsole))
+                if (!verifConoleExiste($nomConsole,$typeConsole))
                 {
-                    ajoutConsole($nomConsole,$marqueConsole,$lienImageConsole);
+                    ajoutConsole($nomConsole,$typeConsole,$lienImageConsole);
                     $messageReu = "La console ".$nomConsole." a bien été enregistrée !";
                 }
                 else
@@ -86,10 +86,14 @@
             $lesConsoles = getLesConsoles();
             $idConsoleModif = $_POST['idConsModif'];
             $nomConsoleModif = $_POST['nomConsoleModif'];
-            $marqueConsoleModif = $_POST['marqueConsoleModif'];
+            $typeConsoleModif = $_POST['typeConsoleModif'];
             $lienImageConsoleModif = $_POST['lienImageModif'];
+            $ancienneConsole = getUneConsole($idConsoleModif);
 
+            if ($nomConsoleModif != "" || $lienImageConsoleModif != "" || $typeConsoleModif != $ancienneConsole['idType'])
+            {
 
+            }
 
             require "views/v_consoles.php"; 
             break;

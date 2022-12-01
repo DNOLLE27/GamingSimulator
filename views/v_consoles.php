@@ -56,17 +56,17 @@
                                 <td><input name="lienImageModif" id="lienImageModif" placeholder="'.$uneConsole['imageCons'].'" type="text"></td>
                             </tr>
                             <tr>
-                                <th>Marque : </th>
-                                <td><select name="marqueConsoleModif" id="marqueConsoleModif">';
-                                    foreach ($lesMarques as $uneMarque)
+                                <th>Type : </th>
+                                <td><select name="typeConsoleModif" id="typeConsoleModif">';
+                                    foreach ($lesTypes as $unType)
                                     {
-                                        if ($uneMarque['idMarque'] == $uneConsole['idMarque'])
+                                        if ($unType['idType'] == $uneConsole['idType'])
                                         {
-                                            echo '<option value="'.$uneMarque['idMarque'].'" selected>'.$uneMarque['libelleMarque'].'</option>';
+                                            echo '<option value="'.$unType['idType'].'" selected>'.$unType['libelleType'].'</option>';
                                         }
                                         else
                                         {
-                                            echo '<option value="'.$uneMarque['idMarque'].'">'.$uneMarque['libelleMarque'].'</option>';
+                                            echo '<option value="'.$unType['idType'].'">'.$unType['libelleType'].'</option>';
                                         }
                                     }
                                 echo '</select></td>
@@ -125,11 +125,11 @@
                                 <td><input name="lienImage" id="lienImage" placeholder="" type="text"></td>
                             </tr>
                             <tr>
-                                <th>Marque : </th>
-                                <td><select name="marqueConsole" id="marqueConsole">';
-                                    foreach ($lesMarques as $uneMarque)
+                                <th>Type : </th>
+                                <td><select name="typeConsole" id="typeConsole">';
+                                    foreach ($lesTypes as $unType)
                                     {
-                                        echo '<option value="'.$uneMarque['idMarque'].'">'.$uneMarque['libelleMarque'].'</option>';
+                                        echo '<option value="'.$unType['idType'].'">'.$unType['libelleType'].'</option>';
                                     }
                                 echo '</select></td>
                             </tr>

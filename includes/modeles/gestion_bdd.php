@@ -150,18 +150,40 @@
     {
         require "connexion.php";
         
-        $sql="SELECT idCons, descriptionCons, imageCons, libelleMarque, idMarque FROM console INNER JOIN type_console ON typeCons = idType INNER JOIN marque ON marqueType = idMarque";
+        $sql="SELECT idCons, descriptionCons, imageCons, libelleMarque, idMarque, idType, libelleType FROM console INNER JOIN type_console ON typeCons = idType INNER JOIN marque ON marqueType = idMarque";
         $exec=$bdd->query($sql);
         $lesConsoles=$exec->fetchAll();
 
         return $lesConsoles;
     }
 
-    function verifConoleExiste($nom,$marque)
+    function getUneConsole($id)
+    {
+        require "connexion.php";
+        
+        $sql="SELECT idCons, descriptionCons, imageCons, libelleMarque, idMarque, idType, libelleType FROM console INNER JOIN type_console ON typeCons = idType INNER JOIN marque ON marqueType = idMarque WHERE idCons = $id";
+        $exec=$bdd->query($sql);
+        $laConsole=$exec->fetch();
+
+        return $laConsole;
+    }
+
+    function getLesTypes()
+    {
+        require "connexion.php";
+        
+        $sql="SELECT idType, libelleType FROM type_console";
+        $exec=$bdd->query($sql);
+        $lesTypes=$exec->fetchAll();
+
+        return $lesTypes;
+    }
+
+    function verifConoleExiste($nom,$typeCons)
     {
         require "connexion.php";
 
-        $sql="SELECT descriptionCons FROM console INNER JOIN type_console ON typeCons = idType WHERE descriptionCons = '$nom' AND marqueType = $marque";
+        $sql="SELECT descriptionCons FROM console INNER JOIN type_console ON typeCons = idType WHERE descriptionCons = '$nom' AND idType = $typeCons";
         $exec=$bdd->query($sql);
 
         $nbCons = $exec->rowCount();
@@ -189,11 +211,11 @@
         return $verifNomConsole;
     }
 
-    function ajoutConsole($nom,$marque,$lienImage)
+    function ajoutConsole($nom,$type,$lienImage)
     {
         require "connexion.php";
 
-        $sql="INSERT INTO console (descriptionCons,imageCons,typeCons) VALUES ('$nom','$lienImage',$marque)";
+        $sql="INSERT INTO console (descriptionCons,imageCons,typeCons) VALUES ('$nom','$lienImage',$type)";
         $exec=$bdd->prepare($sql);
         $exec->execute();
     }
