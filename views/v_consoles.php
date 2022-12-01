@@ -26,7 +26,7 @@
                 if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'supprConsole' && $uneConsole['idCons'] == $idSuppr)
                 {
                     echo '<div class="element-grid">
-                        <p class="text-style-standard texte-consoles">Voulez-vous supprimer la console '.$uneConsole['nomCons'].' ?</p>
+                        <p class="text-style-standard texte-consoles">Voulez-vous supprimer la console '.$uneConsole['descriptionCons'].' ?</p>
                         <table>
                             <form name="validSuppr-form" id="validSuppr-form" method="POST" action="index.php?uc=consoles&action=validSupprConsole">
                                 <input type="hidden" name="idConSuppr" id="idConSuppr" value="'.$idSuppr.'">
@@ -42,10 +42,51 @@
                         </table>
                     </div>';
                 }
+                else if (isset($_REQUEST['action']) && $_REQUEST['action'] == "modifConsole" && $uneConsole['idCons'] == $idModif)
+                {
+                    echo '<div class="element-grid">
+                    <form name="ajout-console-form" id="ajout-console-form" method="POST" action="index.php?uc=consoles&action=verifModifConsole">
+                        <table class="ajout-console-table">
+                            <tr>
+                                <th>Nom : </th>
+                                <td><input name="nomConsoleModif" id="nomConsoleModif" placeholder="'.$uneConsole['descriptionCons'].'" maxlength="15" type="text"></td>
+                            </tr>
+                            <tr>
+                                <th>Image : </th>
+                                <td><input name="lienImageModif" id="lienImageModif" placeholder="'.$uneConsole['imageCons'].'" type="text"></td>
+                            </tr>
+                            <tr>
+                                <th>Marque : </th>
+                                <td><select name="marqueConsoleModif" id="marqueConsoleModif">';
+                                    foreach ($lesMarques as $uneMarque)
+                                    {
+                                        if ($uneMarque['idMarque'] == $uneConsole['idMarque'])
+                                        {
+                                            echo '<option value="'.$uneMarque['idMarque'].'" selected>'.$uneMarque['libelleMarque'].'</option>';
+                                        }
+                                        else
+                                        {
+                                            echo '<option value="'.$uneMarque['idMarque'].'">'.$uneMarque['libelleMarque'].'</option>';
+                                        }
+                                    }
+                                echo '</select></td>
+                            </tr>
+                            <tr>
+                                <input type="hidden" name="idConsModif" id="idConsModif" value="'.$idModif.'">
+                                <td colspan="2"><button class="ajout-console-bouton" type="submit">Modifier</button></td>
+                            </tr>
+                            </form>
+                            <tr>
+                                <td colspan="2"><a href="index.php?uc=consoles">Retour</a></td>
+                            </tr>
+                        </table>
+                    </div>';
+                }
                 else
                 {
                     echo '<div class="element-grid">
                         <p class="text-style-standard texte-consoles"><span class="texte-souligne">Nom :</span> '.$uneConsole['descriptionCons'].'</p>
+                        <img class="img-consoles" src="'.$uneConsole['imageCons'].'">
                         <p class="text-style-standard texte-consoles"><span class="texte-souligne">Marque :</span> '.$uneConsole['libelleMarque'].'</p>';
                     if (isset($_SESSION['droit']) && $_SESSION['droit'] == "2")
                     {
@@ -78,6 +119,10 @@
                             <tr>
                                 <th>Nom : </th>
                                 <td><input name="nomConsole" id="nomConsole" placeholder="" maxlength="15" type="text"></td>
+                            </tr>
+                            <tr>
+                                <th>Image : </th>
+                                <td><input name="lienImage" id="lienImage" placeholder="" type="text"></td>
                             </tr>
                             <tr>
                                 <th>Marque : </th>

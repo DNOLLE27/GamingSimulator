@@ -433,7 +433,22 @@ body{
     text-align: right;
 }
 
+#nomConsoleModif
+{
+    width: 71px;
+}
+
+#lienImageModif
+{
+    width: 71px;
+}
+
 #nomConsole
+{
+    width: 71px;
+}
+
+#lienImage
 {
     width: 71px;
 }
@@ -597,4 +612,10 @@ body{
 .btn-oui
 {
     margin-right: 60px;
+}
+
+.img-consoles
+{
+    max-width: 150px;
+    max-height: 150px;
 }

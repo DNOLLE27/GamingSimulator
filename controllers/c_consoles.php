@@ -25,6 +25,15 @@
             break; 
         }
 
+        case 'modifConsole' :
+        {
+            $lesConsoles = getLesConsoles();
+            $lesMarques = getLesMarques();
+            $idModif = $_POST['idConsole'];
+            require "views/v_consoles.php"; 
+            break; 
+        }
+
         case 'supprConsole' :
         {
             $lesConsoles = getLesConsoles();
@@ -47,6 +56,7 @@
         {
             $nomConsole = $_POST['nomConsole'];
             $marqueConsole = $_POST['marqueConsole'];
+            $lienImageConsole = $_POST['lienImage'];
             $messageErr = "";
             $messageReu = "";
 
@@ -54,7 +64,7 @@
             {
                 if (!verifConoleExiste($nomConsole,$marqueConsole))
                 {
-                    ajoutConsole($nomConsole,$marqueConsole);
+                    ajoutConsole($nomConsole,$marqueConsole,$lienImageConsole);
                     $messageReu = "La console ".$nomConsole." a bien été enregistrée !";
                 }
                 else
@@ -66,6 +76,20 @@
             {
                 $messageErr = "Erreur : Le nom saisi n'est pas valide, veuillez la resaisir !";
             }
+
+            require "views/v_consoles.php"; 
+            break;
+        }
+
+        case 'verifModifConsole' :
+        {
+            $lesConsoles = getLesConsoles();
+            $idConsoleModif = $_POST['idConsModif'];
+            $nomConsoleModif = $_POST['nomConsoleModif'];
+            $marqueConsoleModif = $_POST['marqueConsoleModif'];
+            $lienImageConsoleModif = $_POST['lienImageModif'];
+
+
 
             require "views/v_consoles.php"; 
             break;

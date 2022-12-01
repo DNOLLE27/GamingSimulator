@@ -150,7 +150,7 @@
     {
         require "connexion.php";
         
-        $sql="SELECT idCons, descriptionCons, imageCons, libelleMarque FROM console INNER JOIN type_console ON typeCons = idType INNER JOIN marque ON marqueType = idMarque";
+        $sql="SELECT idCons, descriptionCons, imageCons, libelleMarque, idMarque FROM console INNER JOIN type_console ON typeCons = idType INNER JOIN marque ON marqueType = idMarque";
         $exec=$bdd->query($sql);
         $lesConsoles=$exec->fetchAll();
 
@@ -189,11 +189,20 @@
         return $verifNomConsole;
     }
 
-    function ajoutConsole($nom,$marque)
+    function ajoutConsole($nom,$marque,$lienImage)
     {
         require "connexion.php";
 
-        $sql="INSERT INTO console (nomCons,marqueCons) VALUES ('$nom',$marque)";
+        $sql="INSERT INTO console (descriptionCons,imageCons,typeCons) VALUES ('$nom','$lienImage',$marque)";
+        $exec=$bdd->prepare($sql);
+        $exec->execute();
+    }
+
+    function modifConsole($id,$nom,$marque,$lienImage)
+    {
+        require "connexion.php";
+
+        $sql="UPDATE ";
         $exec=$bdd->prepare($sql);
         $exec->execute();
     }
