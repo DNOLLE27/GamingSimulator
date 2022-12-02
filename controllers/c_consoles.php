@@ -92,7 +92,7 @@
 
             if ($nomConsoleModif != "" || $lienImageConsoleModif != "" || $typeConsoleModif != $ancienneConsole['idType'])
             {
-
+                
             }
 
             require "views/v_consoles.php"; 
