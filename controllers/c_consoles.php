@@ -89,10 +89,48 @@
             $typeConsoleModif = $_POST['typeConsoleModif'];
             $lienImageConsoleModif = $_POST['lienImageModif'];
             $ancienneConsole = getUneConsole($idConsoleModif);
+            $messageErrModif = "";
+            $messageReuModif = "";
 
             if ($nomConsoleModif != "" || $lienImageConsoleModif != "" || $typeConsoleModif != $ancienneConsole['idType'])
             {
-                
+                if ($nomConsoleModif != "" || $typeConsoleModif != $ancienneConsole['idType'])
+                {
+                    if ($nomConsoleModif == "" && $typeConsoleModif != $ancienneConsole['idType'])
+                    {
+                        $verifConsoleExiste = verifConoleExiste($ancienneConsole['descriptionCons'],$typeConsoleModif);
+                    }
+                    else
+                    {
+                        $verifConsoleExiste = verifConoleExiste($nomConsoleModif,$typeConsoleModif);
+                    }
+
+                    if (!$verifConsoleExiste)
+                    {
+                        if ($typeConsoleModif == $ancienneConsole['idType'])
+                        {
+                            $typeConsoleModif = "";
+                        }
+
+                        modifConsole($idConsoleModif,$nomConsoleModif,$typeConsoleModif,$lienImageConsoleModif);
+                        $messageReuModif = "La console ".$ancienneConsole['descriptionCons']." a bien été modifié !";
+                    }
+                    else
+                    {
+                        $messageErrModif = "Vous ne pouvez pas saisir ces données car elle correspondent déjà à une autre console existante !";
+                    }
+                }
+                else
+                {
+                    $typeConsoleModif = "";
+
+                    modifConsole($idConsoleModif,$nomConsoleModif,$typeConsoleModif,$lienImageConsoleModif);
+                    $messageReuModif = "La console ".$ancienneConsole['descriptionCons']." a bien été modifié !";
+                }
+            }
+            else
+            {
+                $messageErrModif = "Aucune donnée n'a été modifié. Veuillez en saisir au moins une pour réaliser une modification !";
             }
 
             require "views/v_consoles.php"; 

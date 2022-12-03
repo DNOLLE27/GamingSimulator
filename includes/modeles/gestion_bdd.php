@@ -220,11 +220,117 @@
         $exec->execute();
     }
 
-    function modifConsole($id,$nom,$marque,$lienImage)
+    function modifConsole($id,$nom,$type,$lienImage)
     {
         require "connexion.php";
 
-        $sql="UPDATE ";
+        $sql="UPDATE console ";
+
+        $cptSet = 0;
+        $set = false;
+
+        if ($nom != "")
+        {
+            $cptSet++;
+        }
+
+        if ($type != "")
+        {
+            $cptSet++;
+        }
+
+        if ($lienImage != "")
+        {
+            $cptSet++;
+        }
+
+        if ($nom != "")
+        {
+            if ($cptSet - 1 != 0)
+            {
+                if (!$set)
+                {
+                    $sql .= "SET descriptionCons = '".$nom."', ";
+                    $set = true;
+                }
+                else
+                {
+                    $sql .= "descriptionCons = '".$nom."', ";
+                }
+            }
+            else
+            {
+                if (!$set)
+                {
+                    $sql .= "SET descriptionCons = '".$nom."' ";
+                    $set = true;
+                }
+                else
+                {
+                    $sql .= "descriptionCons = '".$nom."' ";
+                }
+            }
+        }
+
+        if ($type != "")
+        {
+            if ($cptSet - 1 != 0)
+            {
+                if (!$set)
+                {
+                    $sql .= "SET typeCons = ".$type.", ";
+                    $set = true;
+                }
+                else
+                {
+                    $sql .= "typeCons = ".$type.", ";
+                }
+            }
+            else
+            {
+                if (!$set)
+                {
+                    $sql .= "SET typeCons = ".$type." ";
+                    $set = true;
+                }
+                else
+                {
+                    $sql .= "typeCons = ".$type." ";
+                }
+            }
+        }
+
+        if ($lienImage != "")
+        {
+            if ($cptSet - 1 != 0)
+            {
+                if (!$set)
+                {
+                    $sql .= "SET imageCons = '".$lienImage."', ";
+                    $set = true;
+                }
+                else
+                {
+                    $sql .= "imageCons = '".$lienImage."', ";
+                }
+            }
+            else
+            {
+                if (!$set)
+                {
+                    $sql .= "SET imageCons = '".$lienImage."' ";
+                    $set = true;
+                }
+                else
+                {
+                    $sql .= "imageCons = '".$lienImage."' ";
+                }
+            }
+        }
+
+        $sql .= "WHERE idCons = ".$id;
+        echo $sql;
+
         $exec=$bdd->prepare($sql);
         $exec->execute();
     }
@@ -237,8 +343,6 @@
         $exec=$bdd->prepare($sql);
         $exec->execute();
     }
-
-
 
     function lEtat($id)
     {
@@ -328,6 +432,4 @@
         $curseur=$exec->fetchAll() ;
         return $curseur;
     }
-
-
 ?>

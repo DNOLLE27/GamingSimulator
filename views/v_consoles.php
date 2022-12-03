@@ -18,6 +18,26 @@
             }
         '</div>';
     }
+    else if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'verifModifConsole')
+    {
+        echo '<div class="messErrReu">';
+            if ($messageErrModif != "")
+            {
+                echo '<p class="msgErr">'.$messageErrModif.'</p>
+                    <form name="retour-form" id="retour-form" method="POST" action="index.php?uc=consoles&action=modifConsole">
+                        <input type="hidden" name="idConsole" id="idConsole" value="'.$idConsoleModif.'">
+	                    <button type="submit">Retour</button>
+                    </form>';
+            }
+            else
+            {
+                echo '<p class="msgReu">'.$messageReuModif.'</p>
+                    <form name="retour-form" id="retour-form" method="POST" action="index.php?uc=consoles">
+	                    <button type="submit">Ok</button>
+                    </form>';
+            }
+        '</div>';
+    }
     else
     {
         echo '<div class="consoles-grid">';
@@ -49,7 +69,7 @@
                         <table class="ajout-console-table">
                             <tr>
                                 <th>Nom : </th>
-                                <td><input name="nomConsoleModif" id="nomConsoleModif" placeholder="'.$uneConsole['descriptionCons'].'" maxlength="15" type="text"></td>
+                                <td><input name="nomConsoleModif" id="nomConsoleModif" placeholder="'.$uneConsole['descriptionCons'].'" maxlength="50" type="text"></td>
                             </tr>
                             <tr>
                                 <th>Image : </th>
@@ -118,7 +138,7 @@
                         <table class="ajout-console-table">
                             <tr>
                                 <th>Nom : </th>
-                                <td><input name="nomConsole" id="nomConsole" placeholder="" maxlength="15" type="text"></td>
+                                <td><input name="nomConsole" id="nomConsole" placeholder="" maxlength="50" type="text"></td>
                             </tr>
                             <tr>
                                 <th>Image : </th>
