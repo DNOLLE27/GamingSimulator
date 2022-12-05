@@ -172,6 +172,10 @@
                             <img class="plus-console" src="includes/img/plus.png">
                             Ajouter une nouvelle console
                         </a>
+                        <a href="index.php?uc=consoles&action=ajoutTypeConsole">
+                            <img class="plus-console" src="includes/img/plus.png">
+                            Ajouter un nouveau type de console
+                        </a>
                     </div>';
                 }
             }

@@ -25,6 +25,13 @@
             break; 
         }
 
+        case 'ajoutTypeConsole' :
+        {
+            $lesMarques = getLesMarques();
+            require "views/v_typecons.php"; 
+            break; 
+        }
+
         case 'modifConsole' :
         {
             $lesConsoles = getLesConsoles();
