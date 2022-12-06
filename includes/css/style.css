@@ -449,17 +449,22 @@ body{
 
 .plus-type
 {
-    margin-top: 8px;
+    margin-top: 4px;
     display: inline;
-    height: 35px;
-    width: 35px;
+    height: 18px;
+    width: 18px;
     margin-left: auto;
     margin-right: auto;
 }
 
+#typeConsole
+{
+    margin-top: 0px;
+}
+
 #lienImage, #nomConsole
 {
-    margin-left: -35px;
+    margin-left: -20px;
 }
 
 .element-grid a
@@ -680,4 +685,44 @@ body{
 {
     max-width: 150px;
     max-height: 150px;
+}
+
+.form-typeCons
+{
+    text-align: center;
+}
+
+.form-typeCons a
+{
+    margin-bottom: 100px !important;
+}
+
+.retour-type
+{
+    font-family: Retro;
+}
+
+.retour-type:link
+{
+    color: rgb(0,255,255);
+}
+
+.retour-type:visited
+{
+    color: rgb(0, 255, 255);
+}
+
+.retour-type:hover
+{
+    color: rgb(0, 90, 90);
+}
+
+.retour-type:active
+{
+    color: rgb(0, 150, 150);
+}
+
+.btn-ajout-type
+{
+    margin-bottom: 3px;
 }

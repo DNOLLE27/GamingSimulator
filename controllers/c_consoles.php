@@ -143,5 +143,34 @@
             require "views/v_consoles.php"; 
             break;
         }
+
+        case 'verifAjoutTypeCons' :
+        {
+            $nomTypeCons = $_POST['nomType'];
+            $marqueTypeCons = $_POST['marqueType'];
+            $laMarque = getNomMarque($marqueTypeCons);
+            $messageErrType = "";
+            $messageReuType = "";
+            
+            if (!empty($nomTypeCons))
+            {
+                if (!verifTypeConsExiste($nomTypeCons,$marqueTypeCons))
+                {
+                    ajoutTypeConsole($nomTypeCons,$marqueTypeCons);
+                    $messageReuType = "L'ajout du type $nomTypeCons de ".$laMarque['libelleMarque']." a bien été ajouté !";
+                }
+                else
+                {
+                    $messageErrType = "Le type de console saisi existe déjà, veuillez en saisir un autre !";
+                }
+            }
+            else
+            {
+                $messageErrType = "Le nom saisi pour le type est incorrect, veuillez le re-saisir !";
+            }
+
+            require "views/v_typecons.php"; 
+            break;
+        }
     }
 ?>

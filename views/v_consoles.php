@@ -154,7 +154,7 @@
                                 echo '</select></td>
                                 <td class="lien-ajout-type">
                                     <a href="index.php?uc=consoles&action=ajoutTypeConsole">
-                                        <img class="plus-type" src="includes/img/plus.png">
+                                        <img class="plus-type" src="includes/img/plusv2.png">
                                     </a>
                                 </td>
                             </tr>
