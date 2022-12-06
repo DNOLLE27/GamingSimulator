@@ -447,6 +447,21 @@ body{
     margin-right: auto;
 }
 
+.plus-type
+{
+    margin-top: 8px;
+    display: inline;
+    height: 35px;
+    width: 35px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#lienImage, #nomConsole
+{
+    margin-left: -35px;
+}
+
 .element-grid a
 {
     font-family: Retro;

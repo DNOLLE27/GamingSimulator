@@ -138,11 +138,11 @@
                         <table class="ajout-console-table">
                             <tr>
                                 <th>Nom : </th>
-                                <td><input name="nomConsole" id="nomConsole" placeholder="" maxlength="50" type="text"></td>
+                                <td colspan="2"><input name="nomConsole" id="nomConsole" placeholder="" maxlength="50" type="text"></td>
                             </tr>
                             <tr>
                                 <th>Image : </th>
-                                <td><input name="lienImage" id="lienImage" placeholder="" type="text"></td>
+                                <td colspan="2"><input name="lienImage" id="lienImage" placeholder="" type="text"></td>
                             </tr>
                             <tr>
                                 <th>Type : </th>
@@ -152,13 +152,18 @@
                                         echo '<option value="'.$unType['idType'].'">'.$unType['libelleType'].'</option>';
                                     }
                                 echo '</select></td>
+                                <td class="lien-ajout-type">
+                                    <a href="index.php?uc=consoles&action=ajoutTypeConsole">
+                                        <img class="plus-type" src="includes/img/plus.png">
+                                    </a>
+                                </td>
                             </tr>
                             <tr>
-                                <td colspan="2"><button class="ajout-console-bouton" type="submit">Ajouter</button></td>
+                                <td colspan="3"><button class="ajout-console-bouton" type="submit">Ajouter</button></td>
                             </tr>
                             </form>
                             <tr>
-                                <td colspan="2"><a href="index.php?uc=consoles">Retour</a></td>
+                                <td colspan="3"><a href="index.php?uc=consoles">Retour</a></td>
                             </tr>
                         </table>
                 </div>';
@@ -171,10 +176,6 @@
                         <a href="index.php?uc=consoles&action=ajoutConsole">
                             <img class="plus-console" src="includes/img/plus.png">
                             Ajouter une nouvelle console
-                        </a>
-                        <a href="index.php?uc=consoles&action=ajoutTypeConsole">
-                            <img class="plus-console" src="includes/img/plus.png">
-                            Ajouter un nouveau type de console
                         </a>
                     </div>';
                 }
