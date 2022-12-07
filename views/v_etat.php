@@ -1,6 +1,5 @@
 <div id="Home_title">Gestion de l'état des jeux</div>
-    <p>Ajouter un etat : <a href="index.php?uc=etat&action=ajouter"><img src="includes/img/plus2.png" width=" 20px" /></a></p>
-    
+<div class="etat">    
     <table class="table table-striped">   
         <tr>
             <th>Etat</th>
@@ -12,28 +11,46 @@
         foreach ($lesEtats as $lEtat) 
         {
             if (isset($_REQUEST['action']) && ($_REQUEST['action'] == 'modifier') 
-            && isset($_REQUEST['id']) && ($_REQUEST['id'] == $lEtat['idEtat']))
+            && isset($_REQUEST['id']) && ($_REQUEST['id'] == $lEtat['idEtat'] )) 
             {
                 echo '<tr>'
                 . '<form method="POST" action="index.php?uc=etat&action=valider&id='.$lEtat['idEtat'].'">'
-                . '<td>' . '<input type="text" size="15" maxlength="40" name="modif" value="' . $lEtat['descriptionEtat'] . '" >' . '</td>'
-                . '<td>' . '<input type="submit" value="Valider" >' . '</td>'
+                . '<td>' . '<input class="inputEtat" type="text" size="15" maxlength="2000" name="modifEtatLibelle" value="' . $lEtat['libelleEtat'] . '" >' . '</td>'
+                . '<td>' . '<input class="inputEtat" type="text" size="15" maxlength="2000" name="modifEtatDescription" value="' . $lEtat['descriptionEtat'] . '" >' . '</td>'
+                . '<td>' . '<input class="validEtat" type="submit" value="Valider" ></form>' . '</td>'
+                . '<td>' . '<a href="index.php?uc=etat"><button>Retour</button></a>' . '</td>'
                 . '<td>' 
-                . '</tr>'
-                . '</form>';
-            }else
-                echo '<tr>'
-                . '<td>' .$lEtat['libelleEtat']. '</td>'
-                . '<td>' .$lEtat['descriptionEtat']. '</td>'
-                . '<td>' . '<a href="index.php?uc=marque&action=modifier&id='.$lEtat['idEtat'].'"><button>Modifier</button></a>' . '</td>'
-                . '<td>' . '<a href="index.php?uc=marque&action=supprimer&id='.$lEtat['idEtat'].'"><button>Supprimer</button></a>' . '</td>'
                 . '</tr>';
+            }else 
+                    echo '<tr>'
+                    . '<td>' .$lEtat['libelleEtat']. '</td>'
+                    . '<td><p class="descEtat">' .$lEtat['descriptionEtat']. '</p></td>';
+                    if(isset($_SESSION['droit']) && $_SESSION['droit'] == "2"){
+                    echo '<td>' . '<a href="index.php?uc=etat&action=modifier&id='.$lEtat['idEtat'].'"><button>Modifier</button></a>' . '</td>';
+                    }
+                    echo '</tr>';
             
-            
+               
 
         }
-         
+
+        if(isset($_REQUEST['action']) && ($_REQUEST['action'] == 'ajouter')){
+            echo '<tr>'
+            . '<form method="POST" action="index.php?uc=etat&action=valider&id='.$lEtat['idEtat'].'">'
+            . '<td>' . '<input class="inputEtat" type="text" size="15" maxlength="2000" name="modifEtatLibelle" >' . '</td>'
+            . '<td>' . '<input class="inputEtat" type="text" size="15" maxlength="2000" name="modifEtatDescription" >' . '</td>'
+            . '<td>' . '<input class="validEtat" type="submit" value="Valider" ></form>' . '</td>'
+            . '<td>' . '<a href="index.php?uc=etat"><button>Retour</button></a>' . '</td>'
+            . '<td>' 
+            . '</tr>';
+        }
+        if(isset($_SESSION['droit']) && $_SESSION['droit'] == "2"){
+            echo '<div class="btnAddEtat"><a href="index.php?uc=etat&action=ajouter"><button>Ajouter</button></a></div>';
+        }
+        
+          
         ?>
     </table>
+    </div>;  
 
 

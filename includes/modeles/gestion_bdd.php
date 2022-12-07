@@ -125,25 +125,37 @@
     }
 
     function jeuxAccueil(){
-        $rnd = rand(0,18);
         require "connexion.php";
 
-        $sql="SELECT nomJeux, imageJeux, libelleType FROM jeux INNER JOIN type_console ON typeConsoleJeux = idType LIMIT 4 OFFSET $rnd";
-        $exec=$bdd->query($sql);
-        $curseur=$exec->fetchAll();
+        $sql1="SELECT count(*) from jeux";
+        $exec1=$bdd->query($sql1);
+        $curseur1=$exec1->fetch();
+        $rnd = rand(0,$curseur1[0]-4);
 
-        return $curseur;
+        $sql2="SELECT nomJeux, imageJeux, libelleType, libelleEtat FROM jeux "
+        . "INNER JOIN type_console ON typeConsoleJeux = idType "
+        . "INNER JOIN etat on idEtat = etatJeux "
+        . "ORDER BY idJeux "
+        . "LIMIT 4 OFFSET $rnd ";
+        $exec2=$bdd->query($sql2);
+        $curseur2=$exec2->fetchAll();
+
+        return $curseur2;
     }
 
     function consoleAccueil(){
-        $rnd = rand(0,10);
         require "connexion.php";
 
-        $sql="SELECT descriptionCons, imageCons FROM console LIMIT 4 OFFSET $rnd";
-        $exec=$bdd->query($sql);
-        $curseur=$exec->fetchAll();
+        $sql1="SELECT count(*) from console";
+        $exec1=$bdd->query($sql1);
+        $curseur1=$exec1->fetch();
+        $rnd = rand(0,$curseur1[0]-4);
 
-        return $curseur;
+        $sql2="SELECT descriptionCons, imageCons FROM console LIMIT 4 OFFSET $rnd";
+        $exec2=$bdd->query($sql2);
+        $curseur2=$exec2->fetchAll();
+
+        return $curseur2;
     }
 
     function getLesConsoles()
@@ -168,20 +180,13 @@
         return $laConsole;
     }
 
-    function getLesTypes()
+    function verifConoleExiste($nom,$typeCons)
     {
         require "connexion.php";
         
         $sql="SELECT idType, libelleType FROM type_console";
         $exec=$bdd->query($sql);
         $lesTypes=$exec->fetchAll();
-
-        return $lesTypes;
-    }
-
-    function verifConoleExiste($nom,$typeCons)
-    {
-        require "connexion.php";
 
         $sql="SELECT descriptionCons FROM console INNER JOIN type_console ON typeCons = idType WHERE descriptionCons = '$nom' AND idType = $typeCons";
         $exec=$bdd->query($sql);
@@ -384,7 +389,10 @@
     {
         require "connexion.php";
 
-        $sql="SELECT nomJeux, imageJeux, libelleType FROM jeux INNER JOIN type_console ON typeConsoleJeux = idType";
+        $sql="SELECT idJeux, nomJeux, imageJeux, libelleType, libelleEtat FROM jeux "
+        . "INNER JOIN type_console ON typeConsoleJeux = idType "
+        . "INNER JOIN etat on idEtat = etatJeux "
+        . "ORDER BY idJeux";
         $exec=$bdd->query($sql) ;
         $exec->execute() ;
         $curseur=$exec->fetchAll();
@@ -397,8 +405,6 @@
         $sql = "insert into marque (libelleMarque, logoMarque) values ('$libelle', '$logoMarque')" ;
         $exec=$bdd->prepare($sql) ;
         $exec->execute() ;
-        $curseur=$exec->fetch() ;
-        return $curseur;
     }
 
     function marqueModification($id, $libelle, $logoMarque) {
@@ -408,8 +414,6 @@
                 . "where idMarque = $id " ;
         $exec=$bdd->prepare($sql) ;
         $exec->execute() ;
-        $curseur=$exec->fetch() ;
-        return $curseur;
     }
     
     function supMarque($id) {
@@ -418,8 +422,6 @@
                 . "where idMarque = $id " ;
         $exec=$bdd->prepare($sql) ;
         $exec->execute() ;
-        $curseur=$exec->fetch() ;
-        return $curseur;
     }
 
     function existeMarque($libelle){
@@ -433,41 +435,255 @@
         return $curseur;
     }
 
-    function verifTypeConsExiste($nom,$marque)
-    {
+    function existeLogoMarque($logoMarque){
+        require "connexion.php" ;
+        $sql = "select logoMarque "
+                . "from marque "
+                . "where logoMarque = '$logoMarque'" ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll() ;
+        return $curseur;
+    }
+    function getLesNomsConsole(){
         require "connexion.php";
-
-        $sql="SELECT libelleType FROM type_console WHERE libelleType = '$nom' AND marqueType = $marque";
-        $exec=$bdd->query($sql);
-        $nbTypeCons = $exec->rowCount();
-
-        if ($nbTypeCons != 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        $sql = "select idType, libelleType from type_console";
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll() ;
+        return $curseur;
     }
 
-    function ajoutTypeConsole($nom,$marque)
+    function verifSupprMarque(){
+        require "connexion.php" ;
+        $sql = "select idMarque "
+                . "from marque "
+                . "where idMarque not in (select marqueType from type_console) " ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll() ;
+        return $curseur;
+    }
+
+    function etatInsertion($libelle, $description) {
+        require "connexion.php" ;
+        $sql = "insert into etat (libelleEtat, descriptionEtat) values ('$libelle', '$description')" ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetch() ;
+        return $curseur;
+    }
+
+    function etatModification($id, $libelle, $description) {
+        require "connexion.php" ;
+        $sql = "update etat "
+                . "set libelleEtat = '$libelle', descriptionEtat = '$description' "
+                . "where idEtat = $id " ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetch() ;
+        return $curseur;
+    }
+
+    function existeEtat($libelle){
+        require "connexion.php" ;
+        $sql = "select libelleEtat "
+                . "from etat "
+                . "where libelleEtat = '$libelle'" ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll() ;
+        return $curseur;
+    }
+
+    function existeEtatDescription($description){
+        require "connexion.php" ;
+        $sql = "select descriptionEtat "
+                . "from etat "
+                . "where descriptionEtat = '$description'" ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll() ;
+        return $curseur;
+    }
+
+    function getLesNomsEtats(){
+        require "connexion.php";
+        $sql = "select idEtat, libelleEtat from etat";
+        $exec=$bdd->query($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll() ;
+        return $curseur;
+    }
+
+    function getLesJeuxAlpha(){
+
+        require "connexion.php";
+
+        $sql="SELECT idJeux, nomJeux, imageJeux, libelleType, libelleEtat FROM jeux "
+        . "INNER JOIN type_console ON typeConsoleJeux = idType "
+        . "INNER JOIN etat on idEtat = etatJeux "
+        . "ORDER BY nomJeux";
+        $exec=$bdd->query($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll();
+        return $curseur;
+    }
+
+    function getLesJeuxCons(){
+        
+        require "connexion.php";
+
+        $sql="SELECT idJeux, nomJeux, imageJeux, libelleType, libelleEtat FROM jeux "
+        . "INNER JOIN type_console ON typeConsoleJeux = idType "
+        . "INNER JOIN etat on idEtat = etatJeux "
+        . "ORDER BY libelleType";
+        $exec=$bdd->query($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll();
+        return $curseur;
+    }
+
+    function insererJeu($nom, $image, $console, $etat){
+        require "connexion.php";
+
+        $sql="INSERT INTO jeux(nomJeux, imageJeux, typeConsoleJeux, etatJeux) VALUES ('$nom', '$image', $console, $etat)";
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+    }
+
+    function supprimerJeu($id){
+        require "connexion.php";
+
+        $sql="DELETE FROM jeux WHERE idJeux = $id";
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+    }
+
+    function getLesTypes()
+    {
+        require "connexion.php";
+        
+        $sql="SELECT idType, libelleType FROM type_console";
+        $exec=$bdd->query($sql);
+        $lesTypes=$exec->fetchAll();
+
+        return $lesTypes;
+    }
+
+    function modifConsole($id,$nom,$type,$lienImage)
     {
         require "connexion.php";
 
-        $sql="INSERT INTO type_console (libelleType,marqueType) VALUES ('$nom',$marque)";
+        $sql="UPDATE console ";
+
+        $cptSet = 0;
+        $set = false;
+
+        if ($nom != "")
+        {
+            $cptSet++;
+        }
+
+        if ($type != "")
+        {
+            $cptSet++;
+        }
+
+        if ($lienImage != "")
+        {
+            $cptSet++;
+        }
+
+        if ($nom != "")
+        {
+            if ($cptSet - 1 != 0)
+            {
+                if (!$set)
+                {
+                    $sql .= "SET descriptionCons = '".$nom."', ";
+                    $set = true;
+                }
+                else
+                {
+                    $sql .= "descriptionCons = '".$nom."', ";
+                }
+            }
+            else
+            {
+                if (!$set)
+                {
+                    $sql .= "SET descriptionCons = '".$nom."' ";
+                    $set = true;
+                }
+                else
+                {
+                    $sql .= "descriptionCons = '".$nom."' ";
+                }
+            }
+        }
+
+        if ($type != "")
+        {
+            if ($cptSet - 1 != 0)
+            {
+                if (!$set)
+                {
+                    $sql .= "SET typeCons = ".$type.", ";
+                    $set = true;
+                }
+                else
+                {
+                    $sql .= "typeCons = ".$type.", ";
+                }
+            }
+            else
+            {
+                if (!$set)
+                {
+                    $sql .= "SET typeCons = ".$type." ";
+                    $set = true;
+                }
+                else
+                {
+                    $sql .= "typeCons = ".$type." ";
+                }
+            }
+        }
+
+        if ($lienImage != "")
+        {
+            if ($cptSet - 1 != 0)
+            {
+                if (!$set)
+                {
+                    $sql .= "SET imageCons = '".$lienImage."', ";
+                    $set = true;
+                }
+                else
+                {
+                    $sql .= "imageCons = '".$lienImage."', ";
+                }
+            }
+            else
+            {
+                if (!$set)
+                {
+                    $sql .= "SET imageCons = '".$lienImage."' ";
+                    $set = true;
+                }
+                else
+                {
+                    $sql .= "imageCons = '".$lienImage."' ";
+                }
+            }
+        }
+
+        $sql .= "WHERE idCons = ".$id;
+        echo $sql;
+
         $exec=$bdd->prepare($sql);
         $exec->execute();
     }
 
-    function getNomMarque($id)
-    {
-        require "connexion.php";
-        
-        $sql="SELECT libelleMarque, logoMarque FROM marque WHERE idMarque = $id";
-        $exec=$bdd->query($sql);
-        $laMarque=$exec->fetch();
-
-        return $laMarque;
-    }
 ?>
