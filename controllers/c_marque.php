@@ -21,8 +21,10 @@ else
             require "views/v_marque.php"; 
             break ; 
         }
-        case "ajouter" : { 
-            require "views/v_marque_ajouter.php" ; 
+        case "ajouter" : {
+            $lesMarques = getlesMarques(); 
+        
+            require "views/v_marque.php" ; 
             break ;             
         }
         case "validajout" : {
@@ -67,7 +69,7 @@ else
 
             }
             else
-                if(existeMarque($modifMarqueLibelle) == false)
+                if(existeMarque($modifMarqueLibelle) == false || existeLogoMarque($modifMarqueLogo) == false)
                 {
 
                     marqueModification($id, $modifMarqueLibelle, $modifMarqueLogo) ;

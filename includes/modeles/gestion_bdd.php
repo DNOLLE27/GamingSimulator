@@ -299,6 +299,17 @@
         return $curseur;
     }
 
+    function existeLogoMarque($logoMarque){
+        require "connexion.php" ;
+        $sql = "select logoMarque "
+                . "from marque "
+                . "where logoMarque = '$logoMarque'" ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll() ;
+        return $curseur;
+    }
+
     function verifSupprMarque(){
         require "connexion.php" ;
         $sql = "select idMarque "
@@ -310,5 +321,46 @@
         return $curseur;
     }
 
+    function etatInsertion($libelle, $description) {
+        require "connexion.php" ;
+        $sql = "insert into etat (libelleEtat, descriptionEtat) values ('$libelle', '$description')" ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetch() ;
+        return $curseur;
+    }
+
+    function etatModification($id, $libelle, $description) {
+        require "connexion.php" ;
+        $sql = "update etat "
+                . "set libelleEtat = '$libelle', descriptionEtat = '$description' "
+                . "where idEtat = $id " ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetch() ;
+        return $curseur;
+    }
+
+    function existeEtat($libelle){
+        require "connexion.php" ;
+        $sql = "select libelleEtat "
+                . "from etat "
+                . "where libelleEtat = '$libelle'" ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll() ;
+        return $curseur;
+    }
+
+    function existeEtatDescription($description){
+        require "connexion.php" ;
+        $sql = "select descriptionEtat "
+                . "from etat "
+                . "where descriptionEtat = '$description'" ;
+        $exec=$bdd->prepare($sql) ;
+        $exec->execute() ;
+        $curseur=$exec->fetchAll() ;
+        return $curseur;
+    }
 
 ?>
