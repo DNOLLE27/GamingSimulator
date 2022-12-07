@@ -42,7 +42,7 @@
                     </tr>
             </form>
                     <tr>
-                        <td colspan="2"><a class="retour-type" href="index.php?uc=consoles">Retour</a></td>
+                        <td colspan="2"><a class="retour-type" href="index.php?uc=consoles&action=ajoutConsole">Retour</a></td>
                     </tr>
                 </table>
         </div>';
