@@ -169,17 +169,6 @@
         return $lesConsoles;
     }
 
-    function getLesMarques()
-    {
-        require "connexion.php";
-        
-        $sql="SELECT idMarque, libelleMarque FROM marque";
-        $exec=$bdd->query($sql);
-        $lesMarques=$exec->fetchAll();
-
-        return $lesMarques;
-    }
-
     function verifConoleExiste($nom,$marque)
     {
         require "connexion.php";
@@ -442,6 +431,5 @@
         $exec=$bdd->prepare($sql) ;
         $exec->execute() ;
     }
-
 
 ?>
