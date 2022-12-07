@@ -23,7 +23,7 @@ else
         }
         case "ajouter" : {
             $lesMarques = getlesMarques(); 
-        
+            
             require "views/v_marque.php" ; 
             break ;             
         }
