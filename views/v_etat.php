@@ -11,7 +11,7 @@
         foreach ($lesEtats as $lEtat) 
         {
             if (isset($_REQUEST['action']) && ($_REQUEST['action'] == 'modifier') 
-            && isset($_REQUEST['id']) && ($_REQUEST['id'] == $lEtat['idEtat']))
+            && isset($_REQUEST['id']) && ($_REQUEST['id'] == $lEtat['idEtat'] )) 
             {
                 echo '<tr>'
                 . '<form method="POST" action="index.php?uc=etat&action=valider&id='.$lEtat['idEtat'].'">'
@@ -24,9 +24,11 @@
             }else 
                     echo '<tr>'
                     . '<td>' .$lEtat['libelleEtat']. '</td>'
-                    . '<td ><p class="descEtat">' .$lEtat['descriptionEtat']. '</p></td>'
-                    . '<td>' . '<a href="index.php?uc=etat&action=modifier&id='.$lEtat['idEtat'].'"><button>Modifier</button></a>' . '</td>'
-                    . '</tr>';
+                    . '<td><p class="descEtat">' .$lEtat['descriptionEtat']. '</p></td>';
+                    if(isset($_SESSION['droit']) && $_SESSION['droit'] == "2"){
+                    echo '<td>' . '<a href="index.php?uc=etat&action=modifier&id='.$lEtat['idEtat'].'"><button>Modifier</button></a>' . '</td>';
+                    }
+                    echo '</tr>';
             
                
 
@@ -42,8 +44,10 @@
             . '<td>' 
             . '</tr>';
         }
+        if(isset($_SESSION['droit']) && $_SESSION['droit'] == "2"){
+            echo '<div class="btnAddEtat"><a href="index.php?uc=etat&action=ajouter"><button>Ajouter</button></a></div>';
+        }
         
-        echo '<div class="btnAddEtat"><a href="index.php?uc=etat&action=ajouter"><button>Ajouter</button></a></div>';
           
         ?>
     </table>
