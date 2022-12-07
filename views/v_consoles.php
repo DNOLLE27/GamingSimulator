@@ -5,7 +5,7 @@
             if ($messageErr != "")
             {
                 echo '<p class="msgErr">'.$messageErr.'</p>
-                    <form name="retour-form" id="retour-form" method="POST" action="index.php?uc=consoles&action=ajoutConsole">
+                    <form name="retour-form" id="retour-form" method="POST" action="index.php?uc=consoles&action=ajoutConsole#Scroll-auto">
 	                    <button type="submit">Retour</button>
                     </form>';
             }
@@ -24,7 +24,7 @@
             if ($messageErrModif != "")
             {
                 echo '<p class="msgErr">'.$messageErrModif.'</p>
-                    <form name="retour-form" id="retour-form" method="POST" action="index.php?uc=consoles&action=modifConsole">
+                    <form name="retour-form" id="retour-form" method="POST" action="index.php?uc=consoles&action=modifConsole#Scroll-auto">
                         <input type="hidden" name="idConsole" id="idConsole" value="'.$idConsoleModif.'">
 	                    <button type="submit">Retour</button>
                     </form>';
@@ -45,8 +45,8 @@
             {
                 if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'supprConsole' && $uneConsole['idCons'] == $idSuppr)
                 {
-                    echo '<div class="element-grid">
-                        <p class="text-style-standard texte-consoles">Voulez-vous supprimer la console '.$uneConsole['descriptionCons'].' ?</p>
+                    echo '<div id="Scroll-auto" class="element-grid">
+                        <p class="text-style-standard texte-consoles suppr-texte">Voulez-vous supprimer la console '.$uneConsole['descriptionCons'].' ?</p>
                         <table>
                             <form name="validSuppr-form" id="validSuppr-form" method="POST" action="index.php?uc=consoles&action=validSupprConsole">
                                 <input type="hidden" name="idConSuppr" id="idConSuppr" value="'.$idSuppr.'">
@@ -64,7 +64,7 @@
                 }
                 else if (isset($_REQUEST['action']) && $_REQUEST['action'] == "modifConsole" && $uneConsole['idCons'] == $idModif)
                 {
-                    echo '<div class="element-grid">
+                    echo '<div id="Scroll-auto" class="element-grid">
                     <form name="ajout-console-form" id="ajout-console-form" method="POST" action="index.php?uc=consoles&action=verifModifConsole">
                         <table class="ajout-console-table">
                             <tr>
@@ -113,13 +113,13 @@
                         echo '<table>
                                 <tr>
                                     <td>
-                                        <form name="modif-console-form" id="modif-console-form" method="POST" action="index.php?uc=consoles&action=modifConsole">
+                                        <form name="modif-console-form" id="modif-console-form" method="POST" action="index.php?uc=consoles&action=modifConsole#Scroll-auto">
                                             <input type="hidden" name="idConsole" id="idConsole" value="'.$uneConsole['idCons'].'">
                                             <button class="boutton-standard btn-modif" type="submit">Modifier</button>
                                         </form>
                                     </td>
                                     <td>
-                                        <form name="suppr-console-form" id="suppr-console-form" method="POST" action="index.php?uc=consoles&action=supprConsole">
+                                        <form name="suppr-console-form" id="suppr-console-form" method="POST" action="index.php?uc=consoles&action=supprConsole#Scroll-auto">
                                             <input type="hidden" name="idConsole" id="idConsole" value="'.$uneConsole['idCons'].'">
                                             <button class="boutton-standard btn-suppr" type="submit">Supprimer</button>  
                                         </form>
@@ -133,7 +133,7 @@
 
             if (isset($_REQUEST['action']) && $_REQUEST['action'] == "ajoutConsole")        
             {
-                echo '<div class="element-grid">
+                echo '<div id="Scroll-auto" class="element-grid">
                     <form name="ajout-console-form" id="ajout-console-form" method="POST" action="index.php?uc=consoles&action=verifAjoutConsole">
                         <table class="ajout-console-table">
                             <tr>
@@ -173,7 +173,7 @@
                 if (isset($_SESSION['droit']) && $_SESSION['droit'] == "2")
                 {
                     echo '<div class="element-grid">
-                        <a href="index.php?uc=consoles&action=ajoutConsole">
+                        <a href="index.php?uc=consoles&action=ajoutConsole#Scroll-auto">
                             <img class="plus-console" src="includes/img/plus.png">
                             Ajouter une nouvelle console
                         </a>
