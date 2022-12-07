@@ -162,18 +162,29 @@
     {
         require "connexion.php";
         
-        $sql="SELECT idCons, descriptionCons, libelleMarque, imageCons FROM console INNER JOIN type_console ON typeCons = idType INNER JOIN marque ON marqueType = idMarque";
+        $sql="SELECT idCons, descriptionCons, imageCons, libelleMarque, idMarque, idType, libelleType FROM console INNER JOIN type_console ON typeCons = idType INNER JOIN marque ON marqueType = idMarque";
         $exec=$bdd->query($sql);
         $lesConsoles=$exec->fetchAll();
 
         return $lesConsoles;
     }
 
-    function verifConoleExiste($nom,$marque)
+    function getUneConsole($id)
+    {
+        require "connexion.php";
+        
+        $sql="SELECT idCons, descriptionCons, imageCons, libelleMarque, idMarque, idType, libelleType FROM console INNER JOIN type_console ON typeCons = idType INNER JOIN marque ON marqueType = idMarque WHERE idCons = $id";
+        $exec=$bdd->query($sql);
+        $laConsole=$exec->fetch();
+
+        return $laConsole;
+    }
+
+    function verifConoleExiste($nom,$typeCons)
     {
         require "connexion.php";
 
-        $sql="SELECT nomCons FROM console WHERE nomCons = '$nom' AND marqueCons = $marque";
+        $sql="SELECT descriptionCons FROM console INNER JOIN type_console ON typeCons = idType WHERE descriptionCons = '$nom' AND idType = $typeCons";
         $exec=$bdd->query($sql);
 
         $nbCons = $exec->rowCount();
@@ -201,11 +212,11 @@
         return $verifNomConsole;
     }
 
-    function ajoutConsole($nom,$marque)
+    function ajoutConsole($nom,$type,$lienImage)
     {
         require "connexion.php";
 
-        $sql="INSERT INTO console (nomCons,marqueCons) VALUES ('$nom',$marque)";
+        $sql="INSERT INTO console (descriptionCons,imageCons,typeCons) VALUES ('$nom','$lienImage',$type)";
         $exec=$bdd->prepare($sql);
         $exec->execute();
     }
@@ -430,6 +441,132 @@
         $sql="DELETE FROM jeux WHERE idJeux = $id";
         $exec=$bdd->prepare($sql) ;
         $exec->execute() ;
+    }
+
+    function getLesTypes()
+    {
+        require "connexion.php";
+        
+        $sql="SELECT idType, libelleType FROM type_console";
+        $exec=$bdd->query($sql);
+        $lesTypes=$exec->fetchAll();
+
+        return $lesTypes;
+    }
+
+    function modifConsole($id,$nom,$type,$lienImage)
+    {
+        require "connexion.php";
+
+        $sql="UPDATE console ";
+
+        $cptSet = 0;
+        $set = false;
+
+        if ($nom != "")
+        {
+            $cptSet++;
+        }
+
+        if ($type != "")
+        {
+            $cptSet++;
+        }
+
+        if ($lienImage != "")
+        {
+            $cptSet++;
+        }
+
+        if ($nom != "")
+        {
+            if ($cptSet - 1 != 0)
+            {
+                if (!$set)
+                {
+                    $sql .= "SET descriptionCons = '".$nom."', ";
+                    $set = true;
+                }
+                else
+                {
+                    $sql .= "descriptionCons = '".$nom."', ";
+                }
+            }
+            else
+            {
+                if (!$set)
+                {
+                    $sql .= "SET descriptionCons = '".$nom."' ";
+                    $set = true;
+                }
+                else
+                {
+                    $sql .= "descriptionCons = '".$nom."' ";
+                }
+            }
+        }
+
+        if ($type != "")
+        {
+            if ($cptSet - 1 != 0)
+            {
+                if (!$set)
+                {
+                    $sql .= "SET typeCons = ".$type.", ";
+                    $set = true;
+                }
+                else
+                {
+                    $sql .= "typeCons = ".$type.", ";
+                }
+            }
+            else
+            {
+                if (!$set)
+                {
+                    $sql .= "SET typeCons = ".$type." ";
+                    $set = true;
+                }
+                else
+                {
+                    $sql .= "typeCons = ".$type." ";
+                }
+            }
+        }
+
+        if ($lienImage != "")
+        {
+            if ($cptSet - 1 != 0)
+            {
+                if (!$set)
+                {
+                    $sql .= "SET imageCons = '".$lienImage."', ";
+                    $set = true;
+                }
+                else
+                {
+                    $sql .= "imageCons = '".$lienImage."', ";
+                }
+            }
+            else
+            {
+                if (!$set)
+                {
+                    $sql .= "SET imageCons = '".$lienImage."' ";
+                    $set = true;
+                }
+                else
+                {
+                    $sql .= "imageCons = '".$lienImage."' ";
+                }
+            }
+        }
+
+        $sql .= "WHERE idCons = ".$id;
+        echo $sql;
+
+        $exec=$bdd->prepare($sql);
+        $exec->execute();
     }
 
 ?>
