@@ -26,7 +26,7 @@
                     if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'supprConsole' && $uneConsole['idCons'] == $idSuppr)
                     {
                         echo '<div class="element-grid">
-                            <p class="text-style-standard texte-consoles">Voulez-vous supprimer la console '.$uneConsole['nomCons'].' ?</p>
+                            <p class="text-style-standard texte-consoles">Voulez-vous supprimer la console '.$uneConsole['descriptionCons'].' ?</p>
 
                             <table>
                                 <form name="validSuppr-form" id="validSuppr-form" method="POST" action="index.php?uc=consoles&action=validSupprConsole">
@@ -46,7 +46,8 @@
                     else
                     {
                         echo '<div class="element-grid">
-                            <p class="text-style-standard texte-consoles"><span class="texte-souligne">Nom :</span> '.$uneConsole['nomCons'].'</p>
+                            <p class="text-style-standard texte-consoles"><span class="texte-souligne"></span> '.$uneConsole['descriptionCons'].'</p>
+                            <img class="imageConsole" src="'.$uneConsole['imageCons'].'">
                             <p class="text-style-standard texte-consoles"><span class="texte-souligne">Marque :</span> '.$uneConsole['libelleMarque'].'</p>';
                         if (isset($_SESSION['droit']) && $_SESSION['droit'] == "2")
                         {
@@ -77,7 +78,7 @@
                         echo '<form name="ajout-console-form" id="ajout-console-form" method="POST" action="index.php?uc=consoles&action=verifAjoutConsole">
                             <table class="ajout-console-table">
                                 <tr>
-                                    <th>Nom : </th>
+                                    <th></th>
                                     <td><input name="nomConsole" id="nomConsole" placeholder="" maxlength="15" type="text"></td>
                                 </tr>
                                 <tr>
