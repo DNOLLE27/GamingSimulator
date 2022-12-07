@@ -16,5 +16,7 @@
             require "views/v_jeux.php";
             break ;
         }
+
+      
     }
 ?>
