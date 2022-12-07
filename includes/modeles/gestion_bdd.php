@@ -570,5 +570,42 @@
         $exec=$bdd->prepare($sql);
         $exec->execute();
     }
+    
+    function getNomMarque($id)
+    {
+        require "connexion.php";
+        
+        $sql="SELECT libelleMarque, logoMarque FROM marque WHERE idMarque = $id";
+        $exec=$bdd->query($sql);
+        $laMarque=$exec->fetch();
 
+        return $laMarque;
+    }
+
+    function verifTypeConsExiste($nom,$marque)
+    {
+        require "connexion.php";
+
+        $sql="SELECT libelleType FROM type_console WHERE libelleType = '$nom' AND marqueType = $marque";
+        $exec=$bdd->query($sql);
+        $nbTypeCons = $exec->rowCount();
+
+        if ($nbTypeCons != 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    function ajoutTypeConsole($nom,$marque)
+    {
+        require "connexion.php";
+
+        $sql="INSERT INTO type_console (libelleType,marqueType) VALUES ('$nom',$marque)";
+        $exec=$bdd->prepare($sql);
+        $exec->execute();
+    }
 ?>
