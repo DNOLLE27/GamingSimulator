@@ -148,7 +148,7 @@ html
 .grid-nav-titre
 {
     font-family: retro;   
-    margin-top: 50px;
+    margin-top: 33px;
     text-align: center;
     grid-row: 1 / span 2;
 }
@@ -198,13 +198,19 @@ html
 
 .menu-deco-logo
 {
-    width: 50px;
-    height: 50px;
+    margin-top: 15px !important;
+    width: 45px !important;
+    height: 45px !important;
+}
+
+.lien-co
+{
+    font-size: 20px !important;
 }
 
 .grid-nav-menu nav
 {
-    margin-top: 58px;
+    margin-top: 40px;
     margin-left: 10px;
 }
 
@@ -455,6 +461,7 @@ html
 
 .element-grid
 {
+    height: 400px;
     text-align: center;
     border: solid 2px rgb(0,255,255);
     border-radius: 10px;
@@ -463,7 +470,7 @@ html
 
 .plus-console
 {
-    margin-top: 20%;
+    margin-top: 30%;
     display: block;
     height: 70px;
     width: 70px;
@@ -618,12 +625,12 @@ html
 
 .ajout-console-table
 {
-    margin-top: 18%;
+    margin-top: 28%;
 }
 
 .suppr-texte
 {
-    margin-top: 30%;
+    margin-top: 35%;
 }
 
 .suppr-lien
@@ -1061,4 +1068,9 @@ html
     
     color: rgb(0,255,255);
 
+}
+
+.textes-consoles-haut
+{
+    margin-top: 17%;
 }

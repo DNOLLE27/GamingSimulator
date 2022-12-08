@@ -105,7 +105,7 @@
                 else
                 {
                     echo '<div class="element-grid">
-                        <p class="text-style-standard texte-consoles"><span class="texte-souligne">Nom :</span> '.$uneConsole['descriptionCons'].'</p>
+                        <p class="text-style-standard texte-consoles textes-consoles-haut"><span class="texte-souligne">Nom :</span> '.$uneConsole['descriptionCons'].'</p>
                         <img class="img-consoles" src="'.$uneConsole['imageCons'].'">
                         <p class="text-style-standard texte-consoles"><span class="texte-souligne">Marque :</span> '.$uneConsole['libelleMarque'].'</p>';
                     if (isset($_SESSION['droit']) && $_SESSION['droit'] == "2")
