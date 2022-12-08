@@ -21,7 +21,7 @@
                   . '</br></br>';
                   if(isset($_SESSION['droit']) && $_SESSION['droit'] == 2){
                         echo '<form method="POST" action="index.php?uc=jeux&action=supprimer&id='.$unJeu['idJeux'].'">'
-                              . '<button class="etat" type="submit">Supprimer</button>'
+                              . '<button class="boutton-standard" type="submit">Supprimer</button>'
                               . '</form>';
                   }
                   echo '</div>';
