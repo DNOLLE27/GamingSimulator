@@ -28,30 +28,36 @@ else
             break ;             
         }
         case "validajout" : {
-        $marqueAjoutLibelle = $_POST['libelle'] ;
-        $marqueAjoutLogo = $_POST['logoMarque'] ;
-        if($marqueAjoutLibelle == "" || $marqueAjoutLogo == "")
-        {
-            echo '<div class="home">'
-            . '<p class="erreur">Veuillez saisir une marque !</p>'
-            . '<a href="index.php?uc=marque&action=ajouter"> Retour </a>'  ;
-
-        }
-        else
-            if(existeMarque($marqueAjoutLibelle) == false)
+            $marqueAjoutLibelle = $_POST['libelle'] ;
+            $marqueAjoutLogo = $_POST['logoMarque'] ;
+            if($marqueAjoutLibelle == "" || $marqueAjoutLogo == "")
             {
-                marqueInsertion($marqueAjoutLibelle, $marqueAjoutLogo) ;
-                echo '<div class="home">'  
-                . '<p class="valider">La marque ' . $marqueAjoutLibelle . ' a bien été ajouté !</p>' 
-                . '<br><a href="index.php?uc=marque"> Retour </a>' ;
-                
+                echo '<div class="home">'
+                . '<p class="erreur">Veuillez saisir une marque !</p>'
+                . '<a href="index.php?uc=marque&action=ajouter"> Retour </a>'  ;
+
             }
             else
-                echo '<div class="home">'
-                . '<p class="erreur">La marque ' . $marqueAjoutLibelle . ' existe déja !</p>' 
-                . '<br><a href="index.php?uc=marque&action=ajouter"> Retour </a>'  ;
-        break;
+            {
+                if(existeMarque($marqueAjoutLibelle) == false)
+                {
+                    marqueInsertion($marqueAjoutLibelle, $marqueAjoutLogo) ;
+                    echo '<div class="home">'  
+                    . '<p class="valider">La marque ' . $marqueAjoutLibelle . ' a bien été ajouté !</p>' 
+                    . '<br><a href="index.php?uc=marque"> Retour </a>' ;
+                
+                }
+                else
+                {
+                    
+                    echo '<div class="home">'
+                    . '<p class="erreur">La marque ' . $marqueAjoutLibelle . ' existe déja !</p>' 
+                    . '<br><a href="index.php?uc=marque&action=ajouter"> Retour </a>'  ;
+                }
+            break;
+            }
         }
+
         case "modifier" : {
         $lesMarques = getLesMarques() ;
         require "views/v_marque.php" ; 
@@ -69,6 +75,7 @@ else
 
             }
             else
+            {
                 if(existeMarque($modifMarqueLibelle) == false || existeLogoMarque($modifMarqueLogo) == false)
                 {
 
@@ -79,9 +86,12 @@ else
                     
                 }
                 else
+                {
                     echo '<div class="home">'
                     . '<p class="erreur">La marque ' . $modifMarqueLibelle . ' existe déja !</p>' 
                     . '<br><a href="index.php?uc=marque&action=modifier"> Retour </a>'  ;
+                }
+            }
                                 
             break;
         }

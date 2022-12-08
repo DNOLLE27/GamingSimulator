@@ -1,22 +1,92 @@
 body{
     background-image: url("../img/background.png");
-    background-repeat: repeat-y;
+    background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
+}
+
+html
+{
+    scroll-behavior: auto;
+}
+
+#Scroll-auto
+{
+    scroll-margin-block: 50vh;
+}
+
+.form-typeCons
+{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 2px rgb(0, 255, 255);
+    border-radius: 10px;
+    background: rgb(0, 0, 0);
+    width: 400px;
+}
+
+.form-typeCons table
+{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.form-typeCons table button
+{
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-typeCons h1
+{
+    text-decoration: underline;
+    color: rgb(0, 255, 255);
+    font-family: retro;
+    font-size: 20px;
+    text-align: center;
+}
+
+.form-typeCons table th
+{
+    color: rgb(0,255,255);
+    font-family: retro;
+    text-decoration: underline;
+    text-align: right;
+}
+
+#nomType
+{
+    width: 70px;
 }
 
 .texteJeuxAccueil{
+    padding: 5px;
     border: 3px solid cyan;
     border-radius: 20px;
     color: cyan;
-    background-color: grey;
+    background-color: black;
+    font-family: retro;
+    font-size: 13px;
+    text-align: center;
+}
+
+.texteJeuxAccueil button{
+    border: 3px solid cyan;
+    color: cyan;
+    background-color: black;
     font-family: retro;
     font-size: 13px;
     text-align: center;
 }
 
 .imageJeuxAccueil{
-    width: 60%;
-    height: 65%;
+    max-width: 180px;
+    max-height: 180px;
 }
 
 @font-face {
@@ -45,13 +115,15 @@ body{
     margin-right: 10%;
 }
 
-
 .grid-nav
 {   
     display: grid;
     grid-template: 1fr 1fr / 1fr 2fr 8fr 2fr;
     background-color: rgb(0,0,0);
     border: solid 5px rgb(0,255,255);
+    position: static;
+    z-index: 1000;
+    height: 100px;
 }
 
 .grid-nav-menu
@@ -76,7 +148,7 @@ body{
 .grid-nav-titre
 {
     font-family: retro;   
-    margin-top: 50px;
+    margin-top: 33px;
     text-align: center;
     grid-row: 1 / span 2;
 }
@@ -89,7 +161,7 @@ body{
 .menu-deco-logo, .menu-logo
 {
     margin-bottom: -10px;
-    margin-top: 30px;
+    margin-top: 10px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -110,21 +182,35 @@ body{
     font-family: retro;
 }
 
-.nom-ent, .lien-deco
+.nom-ent, .lien-co
 {
     font-size: 25px;
     text-decoration: none;
 }
 
+.lien-deco
+{
+    display: block;
+    text-decoration: none;
+    margin-top: 10px;
+    font-size: 11px;
+}
+
 .menu-deco-logo
 {
-    width: 50px;
-    height: 50px;
+    margin-top: 15px !important;
+    width: 45px !important;
+    height: 45px !important;
+}
+
+.lien-co
+{
+    font-size: 20px !important;
 }
 
 .grid-nav-menu nav
 {
-    margin-top: 58px;
+    margin-top: 40px;
     margin-left: 10px;
 }
 
@@ -186,7 +272,7 @@ body{
 .auth-div h1
 {
     color: rgb(0,255,255);
-    font-family: retro-gaming;
+    font-family: Retro;
     text-align: center;
     margin-top: 40px;
 }
@@ -194,7 +280,7 @@ body{
 .auth-div p
 {
     color: rgb(0,255,255);
-    font-family: retro-gaming;
+    font-family: Retro;
     text-align: center;
     font-size: 12px;
     margin-bottom: 20px;
@@ -207,7 +293,7 @@ body{
     margin-right: auto;
     margin-top: 20px;
 
-    font-family: retro-gaming;
+    font-family: Retro;
     color: rgb(0,255,255);
     background-color: rgb(0, 0, 0);
     border: solid 2px rgb(0,255,255);
@@ -256,7 +342,7 @@ body{
     margin-top: 20px;
     margin-bottom: 20px;
 
-    font-family: retro-gaming;
+    font-family: Retro;
     color: rgb(0,255,255);
     background-color: rgb(0, 0, 0);
     border: solid 2px rgb(0,255,255);
@@ -299,12 +385,14 @@ body{
 
 .msgReu
 {
+    font-family: Retro;
     margin-top: 20px !important;
     color: rgb(0, 255, 0) !important;
 }
 
 .msgErr
 {
+    font-family: Retro;
     margin-top: 20px !important;
     color: rgb(255, 0, 0) !important;
 }
@@ -319,39 +407,371 @@ body{
     color: rgb(255, 0, 0) ;
 }
 
-.etat{
-    position: relative;
-    width: 25%;
-    height: 20%;
-    margin-bottom: 5%;
-    margin-top: 6%;
-    left: 35%;
-    font-size: 20px;
-    padding: 5%;
-    background: #000000;
-    box-shadow: 0em 0em 2em grey;
-    border-radius:20px;
-    border: 3px solid rgb(0, 255, 255);
+.gridPrincipalJeux{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: retro;
 }
 
-.btnAddEtat{
-    position: absolute;
-    top:90%;
-    left: 40%;
-    
-    
+.gridJeux{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1, 200px;
+    margin: 2%;
+    border-radius: 20px;
+    border: solid 3px rgb(0,255,255);
+    text-align: center;
+    color: cyan;
+    font-family: retro;
 }
 
-.descEtat{
-    margin-left: 22%;
+.imageJeux{
+    width: 150px;
+    margin: 80px;
+    margin-left: 5%;
 }
 
-.etat tr{
-    
+.nomJeux{
+    grid-column: 2/4;
+}
+
+.consoles-grid
+{
+    margin-top: 35px;
+    display: grid;
+    grid-template: 1fr / 1fr 1fr 1fr 1fr;
+    grid-gap: 50px;
+}
+
+.text-style-standard
+{
     color: rgb(0,255,255);
-
+    font-family: Retro;
 }
 
+.texte-souligne
+{
+    text-decoration: underline;
+}
+
+.texte-consoles
+{
+    text-align: center;
+}
+
+.element-grid
+{
+    height: 400px;
+    text-align: center;
+    border: solid 2px rgb(0,255,255);
+    border-radius: 10px;
+    background-color: rgb(0, 0, 0);
+}
+
+.plus-console
+{
+    margin-top: 30%;
+    display: block;
+    height: 70px;
+    width: 70px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.plus-type
+{
+    margin-top: 4px;
+    display: inline;
+    height: 18px;
+    width: 18px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#typeConsole
+{
+    margin-top: 0px;
+}
+
+#lienImage, #nomConsole
+{
+    margin-left: -20px;
+}
+
+.element-grid a
+{
+    font-family: Retro;
+}
+
+.element-grid a:link
+{
+    color: rgb(0,255,255);
+}
+
+.element-grid a:visited
+{
+    color: rgb(0, 255, 255);
+}
+
+.element-grid a:hover
+{
+    color: rgb(0, 90, 90);
+}
+
+.element-grid a:active
+{
+    color: rgb(0, 150, 150);
+}
+
+.ajout-console-table th
+{
+    color: rgb(0,255,255);
+    font-family: Retro;
+    text-decoration: underline;
+    text-align: right;
+}
+
+#nomConsoleModif
+{
+    width: 115px;
+}
+
+#lienImageModif
+{
+    width: 115px;
+}
+
+#nomConsole
+{
+    width: 115px;
+}
+
+#lienImage
+{
+    width: 115px;
+}
+
+#marqueConsole
+{
+    display: block;
+    margin-left: 0px;
+}
+
+.ajout-console-table
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ajout-console-bouton
+{
+    margin-top: 10px;
+    margin-bottom: 6px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-family: Retro;
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.ajout-console-bouton:hover 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.ajout-console-bouton:focus 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.ajout-console-bouton:active 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.ajout-console-bouton:focus:hover
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.ajout-console-bouton:focus:active 
+{
+    color: rgb(0, 90, 90);
+    background-color: rgb(0,255,255);
+    border: solid 2px rgb(0, 90, 90);
+}
+
+.ajout-console-table select, .ajout-console-table input
+{
+    margin-top: 6px;
+}
+
+.element-grid table
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ajout-console-table
+{
+    margin-top: 28%;
+}
+
+.suppr-texte
+{
+    margin-top: 35%;
+}
+
+.suppr-lien
+{
+    margin-left: 50px;
+}
+
+.modif-lien
+{
+    margin-right: 50px;
+}
+
+.messErrReu
+{
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 625px;
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0, 255, 255);
+}
+
+.boutton-standard
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.boutton-standard:hover 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.boutton-standard:focus 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.boutton-standard:active 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.boutton-standard:focus:hover
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.boutton-standard:focus:active 
+{
+    color: rgb(0, 90, 90);
+    background-color: rgb(0,255,255);
+    border: solid 2px rgb(0, 90, 90);
+}
+
+.btn-modif
+{
+    margin-right: 30px;
+}
+
+.btn-suppr
+{
+    margin-left: 30px;
+}
+
+
+.btn-suppr, .btn-modif
+{
+    margin-bottom: 10px;
+}
+
+.btn-non
+{
+    margin-left: 60px;
+}
+
+.btn-oui
+{
+    margin-right: 60px;
+}
+
+.img-consoles
+{
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.form-typeCons
+{
+    text-align: center;
+}
+
+.retour-type
+{
+    font-family: Retro;
+}
+
+.retour-type:link
+{
+    color: rgb(0,255,255);
+}
+
+.retour-type:visited
+{
+    color: rgb(0, 255, 255);
+}
+
+.retour-type:hover
+{
+    color: rgb(0, 90, 90);
+}
+
+.retour-type:active
+{
+    color: rgb(0, 150, 150);
+}
+
+.btn-ajout-type
+{
+    margin-top: 20px !important;
+    margin-bottom: 3px;
+}
+
+.btnTri{
+    width: 20px;
+    height: 20px;
+}
+
+.cyan{
+    background-color: cyan;
+}
 
 .etat button
 {
@@ -616,3 +1036,43 @@ body{
     background-color: rgb(0,255,255);
     border: solid 2px rgb(0, 90, 90);
 }
+<<<<<<< HEAD
+=======
+
+.etat{
+    position: relative;
+    width: 25%;
+    height: 20%;
+    margin-bottom: 5%;
+    margin-top: 6%;
+    left: 35%;
+    font-size: 20px;
+    padding: 5%;
+    background: #000000;
+    box-shadow: 0em 0em 2em grey;
+    border: 3px solid rgb(0, 255, 255);
+}
+
+.btnAddEtat{
+    position: absolute;
+    top:90%;
+    left: 40%;
+    
+    
+}
+
+.descEtat{
+    margin-left: 22%;
+}
+
+.etat tr{
+    
+    color: rgb(0,255,255);
+
+}
+
+.textes-consoles-haut
+{
+    margin-top: 17%;
+}
+>>>>>>> develop
