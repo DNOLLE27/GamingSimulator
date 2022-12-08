@@ -21,7 +21,7 @@
                 . '<td>' . '<a href="index.php?uc=etat"><button>Retour</button></a>' . '</td>'
                 . '<td>' 
                 . '</tr>';
-            }else 
+            }else{
                     echo '<tr>'
                     . '<td>' .$lEtat['libelleEtat']. '</td>'
                     . '<td><p class="descEtat">' .$lEtat['descriptionEtat']. '</p></td>';
@@ -29,6 +29,7 @@
                     echo '<td>' . '<a href="index.php?uc=etat&action=modifier&id='.$lEtat['idEtat'].'"><button>Modifier</button></a>' . '</td>';
                     }
                     echo '</tr>';
+                }
             
                
 

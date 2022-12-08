@@ -33,7 +33,7 @@ else
             if($marqueAjoutLibelle == "" || $marqueAjoutLogo == "")
             {
                 echo '<div class="home">'
-                . '<p class="erreur">Veuillez saisir une marque !</p>'
+                . '<p class="text-style-standard">Veuillez saisir une marque !</p>'
                 . '<a href="index.php?uc=marque&action=ajouter"> Retour </a>'  ;
 
             }
@@ -43,7 +43,7 @@ else
                 {
                     marqueInsertion($marqueAjoutLibelle, $marqueAjoutLogo) ;
                     echo '<div class="home">'  
-                    . '<p class="valider">La marque ' . $marqueAjoutLibelle . ' a bien été ajouté !</p>' 
+                    . '<p class="text-style-standard">La marque ' . $marqueAjoutLibelle . ' a bien été ajouté !</p>' 
                     . '<br><a href="index.php?uc=marque"> Retour </a>' ;
                 
                 }
@@ -51,7 +51,7 @@ else
                 {
                     
                     echo '<div class="home">'
-                    . '<p class="erreur">La marque ' . $marqueAjoutLibelle . ' existe déja !</p>' 
+                    . '<p class="text-style-standard">La marque ' . $marqueAjoutLibelle . ' existe déja !</p>' 
                     . '<br><a href="index.php?uc=marque&action=ajouter"> Retour </a>'  ;
                 }
             break;
@@ -70,7 +70,7 @@ else
             if($modifMarqueLibelle == "" || $modifMarqueLogo == "")
             {
                 echo '<div class="home">'
-                . '<p class="erreur">Veuillez saisir le nom de votre marque !</p>'
+                . '<p class="text-style-standard">Veuillez saisir le nom de votre marque !</p>'
                 . '<a href="index.php?uc=marque&action=modifier"> Retour </a>'  ;
 
             }
@@ -81,14 +81,14 @@ else
 
                     marqueModification($id, $modifMarqueLibelle, $modifMarqueLogo) ;
                     echo '<div class="home">'  
-                    . '<p class="valider">La marque se nomme désormais  ' . $modifMarqueLibelle . ' !</p>' 
+                    . '<p class="text-style-standard">La marque se nomme désormais  ' . $modifMarqueLibelle . ' !</p>' 
                     . '<br><a href="index.php?uc=marque"> Retour </a>' ;
                     
                 }
                 else
                 {
                     echo '<div class="home">'
-                    . '<p class="erreur">La marque ' . $modifMarqueLibelle . ' existe déja !</p>' 
+                    . '<p class="text-style-standard">La marque ' . $modifMarqueLibelle . ' existe déja !</p>' 
                     . '<br><a href="index.php?uc=marque&action=modifier"> Retour </a>'  ;
                 }
             }
@@ -100,7 +100,7 @@ else
             
             supMarque($id) ;
             echo '<div class="home">'  
-                    . '<p class="valider">La marque sélectionné a bien été supprimé !</p>' 
+                    . '<p class="text-style-standard">La marque sélectionnée a bien été supprimé !</p>' 
                     . '<br><a href="index.php?uc=marque"> Retour </a>' ;
             break;
         }

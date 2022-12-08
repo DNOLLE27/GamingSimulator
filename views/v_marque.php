@@ -25,13 +25,12 @@ echo '<div class="Imaguss">';
             . '<form method="POST" action="index.php?uc=marque&action=valider&id='.$laMarque['idMarque'].'">'
                 . '<td>' . '<input class="nomMarque" type="text" size="15" maxlength="2000" name="modifMarqueLibelle" value="' . $laMarque['libelleMarque'] . '" >' . '</td>'
                 . '<td>' . '<input class="nomMarque" type="text" size="15" maxlength="2000" name="modifMarqueLogo" value="' . $laMarque['logoMarque'] . '" >' . '</td>'
-                . '<td>' . '<br><input class="btnMarqueVal" type="submit" value="Valider" >' . '</td>'
-                . '<td>' 
-                . '</tr>'
-                . '</form>' 
+                . '<td>' . '<br><input class="btnMarqueVal" type="submit" value="Valider" >' . '</td>' . '</form>'
+                . '<td>' . '<a class="btnRetourM" href="index.php?uc=marque"><button>Retour</button></a>' . '</td>'
+                . '</tr>' 
                 . '</div>';
                         
-            }else
+            }else{
             echo 
             '<div class="boxMarque">' 
             . '<img class="imgMarque" src="'. $laMarque['logoMarque'].'">';
@@ -41,7 +40,8 @@ echo '<div class="Imaguss">';
                 echo '<td>' . '<a href="index.php?uc=marque&action=supprimer&id='.$laMarque['idMarque'].'"><button>Supprimer</button></a>' . '</td>';
             }
             }
-            echo '</div>';   
+            echo '</div>';
+        }   
             
             
             
