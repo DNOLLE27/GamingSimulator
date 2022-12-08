@@ -10,6 +10,9 @@
                   . '</br>'
                   . '</br>'
                   . '<label class="nomConsole">'.$unJeuAccueil['libelleType'].'</label>'
+                  . '</br>'
+                  . '</br>'
+                  . '<label> Etat : '.$unJeuAccueil['libelleEtat'].'</label>'
                   . '</div>';
       }
       ?>  
