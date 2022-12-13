@@ -1,0 +1,1083 @@
+body{
+    background-image: url("../img/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+html
+{
+    scroll-behavior: auto;
+}
+
+#Scroll-auto
+{
+    scroll-margin-block: 50vh;
+}
+
+.form-typeCons
+{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 2px rgb(0, 255, 255);
+    border-radius: 10px;
+    background: rgb(0, 0, 0);
+    width: 400px;
+}
+
+.form-typeCons table
+{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.form-typeCons table button
+{
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-typeCons h1
+{
+    text-decoration: underline;
+    color: rgb(0, 255, 255);
+    font-family: retro;
+    font-size: 20px;
+    text-align: center;
+}
+
+.form-typeCons table th
+{
+    color: rgb(0,255,255);
+    font-family: retro;
+    text-decoration: underline;
+    text-align: right;
+}
+
+#nomType
+{
+    width: 70px;
+}
+
+.texteJeuxAccueil{
+    padding: 5px;
+    border: 3px solid cyan;
+    border-radius: 20px;
+    color: cyan;
+    background-color: black;
+    font-family: retro;
+    font-size: 13px;
+    text-align: center;
+}
+
+.texteJeuxAccueil button{
+    border: 3px solid cyan;
+    color: cyan;
+    background-color: black;
+    font-family: retro;
+    font-size: 13px;
+    text-align: center;
+}
+
+.imageJeuxAccueil{
+    max-width: 180px;
+    max-height: 180px;
+}
+
+@font-face {
+    font-family: "Retro";
+    src: url('../font/RetroGaming.ttf');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+.titreAccueil{
+    font-family: retro;
+    color: cyan;
+    font-size: 25px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gridAccueil{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 10%;
+    margin-left:10%;
+    margin-right: 10%;
+}
+
+.grid-nav
+{   
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 2fr 8fr 2fr;
+    background-color: rgb(0,0,0);
+    border: solid 5px rgb(0,255,255);
+    position: static;
+    z-index: 1000;
+    height: 100px;
+}
+
+.grid-nav-menu
+{
+    grid-row: 1 / span 2;
+}
+
+.grid-nav-menu ul
+{
+    padding: 0;
+    margin: 0;
+}
+
+.grid-nav-menu li
+{
+    font-family: retro;
+    display: inline;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.grid-nav-titre
+{
+    font-family: retro;   
+    margin-top: 33px;
+    text-align: center;
+    grid-row: 1 / span 2;
+}
+
+.grid-nav-logo
+{
+    grid-row: 1 / span 2;
+}
+
+.menu-deco-logo, .menu-logo
+{
+    margin-bottom: -10px;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80px;
+    height: 80px;
+}
+
+.grid-nav-deco-texte
+{
+    margin-top: 10px;
+    font-family: retro;
+    text-align: center;
+}
+
+.lien-menu
+{
+    text-decoration: none;
+    font-family: retro;
+}
+
+.nom-ent, .lien-co
+{
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.lien-deco
+{
+    display: block;
+    text-decoration: none;
+    margin-top: 10px;
+    font-size: 11px;
+}
+
+.menu-deco-logo
+{
+    margin-top: 15px !important;
+    width: 45px !important;
+    height: 45px !important;
+}
+
+.lien-co
+{
+    font-size: 20px !important;
+}
+
+.grid-nav-menu nav
+{
+    margin-top: 40px;
+    margin-left: 10px;
+}
+
+.grid-nav a, .grid-nav li 
+{
+    color: rgb(0,255,255);
+}
+
+
+.imgMarque{
+    width: 270px;
+    height: 150px;
+}
+
+.boxMarque {
+   
+
+    width: auto;
+    height: auto;
+    margin-bottom: 5%;
+    margin-top: 6%;
+    
+    padding: 5%;
+    background: #3a3e3e;
+    box-shadow: 0em 0em 2em grey;
+    border-radius:20px;
+    border: 3px solid rgb(0, 255, 255);
+  }
+
+
+  .Imaguss{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5%;
+    margin-right: 15%;
+    margin-left: 15%;
+    
+}
+
+
+.auth-div
+{
+    margin-top: 30px;
+    background-color: rgb(0, 0, 0);
+    border: solid 3px rgb(0,255,255);
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.auth-div table
+{
+    margin-top: 40px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.auth-div h1
+{
+    color: rgb(0,255,255);
+    font-family: Retro;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.auth-div p
+{
+    color: rgb(0,255,255);
+    font-family: Retro;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.form-auth button
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+
+    font-family: Retro;
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.form-auth button:hover 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.form-auth button:focus 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.form-auth button:active 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.form-auth button:focus:hover
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.form-auth button:focus:active 
+{
+    color: rgb(0, 90, 90);
+    background-color: rgb(0,255,255);
+    border: solid 2px rgb(0, 90, 90);
+}
+
+#retour-form button
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    font-family: Retro;
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+#retour-form button:hover 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+#retour-form button:focus 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+#retour-form button:active 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+#retour-form button:focus:hover
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+#retour-form button:focus:active 
+{
+    color: rgb(0, 90, 90);
+    background-color: rgb(0,255,255);
+    border: solid 2px rgb(0, 90, 90);
+}
+
+.msgReu
+{
+    font-family: Retro;
+    margin-top: 20px !important;
+    color: rgb(0, 255, 0) !important;
+}
+
+.msgErr
+{
+    font-family: Retro;
+    margin-top: 20px !important;
+    color: rgb(255, 0, 0) !important;
+}
+
+.admin
+{
+    color: rgb(0, 0, 255) !important;
+    margin-bottom: -20px !important;
+}
+
+.ajoutMarque{
+    color: rgb(255, 0, 0) ;
+}
+
+.gridPrincipalJeux{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: retro;
+}
+
+.gridJeux{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1, 200px;
+    margin: 2%;
+    border-radius: 20px;
+    border: solid 3px rgb(0,255,255);
+    text-align: center;
+    color: cyan;
+    font-family: retro;
+}
+
+.imageJeux{
+    width: 150px;
+    margin: 80px;
+    margin-left: 5%;
+}
+
+.nomJeux{
+    grid-column: 2/4;
+}
+
+.consoles-grid
+{
+    margin-top: 35px;
+    display: grid;
+    grid-template: 1fr / 1fr 1fr 1fr 1fr;
+    grid-gap: 50px;
+}
+
+.text-style-standard
+{
+    color: rgb(0,255,255);
+    font-family: Retro;
+}
+
+.texte-souligne
+{
+    text-decoration: underline;
+}
+
+.texte-consoles
+{
+    text-align: center;
+}
+
+.element-grid
+{
+    height: 400px;
+    text-align: center;
+    border: solid 2px rgb(0,255,255);
+    border-radius: 10px;
+    background-color: rgb(0, 0, 0);
+}
+
+.plus-console
+{
+    margin-top: 30%;
+    display: block;
+    height: 70px;
+    width: 70px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.plus-type
+{
+    margin-top: 4px;
+    display: inline;
+    height: 18px;
+    width: 18px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#typeConsole
+{
+    margin-top: 0px;
+}
+
+#lienImage, #nomConsole
+{
+    margin-left: -20px;
+}
+
+.element-grid a
+{
+    font-family: Retro;
+}
+
+.element-grid a:link
+{
+    color: rgb(0,255,255);
+}
+
+.element-grid a:visited
+{
+    color: rgb(0, 255, 255);
+}
+
+.element-grid a:hover
+{
+    color: rgb(0, 90, 90);
+}
+
+.element-grid a:active
+{
+    color: rgb(0, 150, 150);
+}
+
+.ajout-console-table th
+{
+    color: rgb(0,255,255);
+    font-family: Retro;
+    text-decoration: underline;
+    text-align: right;
+}
+
+#nomConsoleModif
+{
+    width: 115px;
+}
+
+#lienImageModif
+{
+    width: 115px;
+}
+
+#nomConsole
+{
+    width: 115px;
+}
+
+#lienImage
+{
+    width: 115px;
+}
+
+#marqueConsole
+{
+    display: block;
+    margin-left: 0px;
+}
+
+.ajout-console-table
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ajout-console-bouton
+{
+    margin-top: 10px;
+    margin-bottom: 6px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-family: Retro;
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.ajout-console-bouton:hover 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.ajout-console-bouton:focus 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.ajout-console-bouton:active 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.ajout-console-bouton:focus:hover
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.ajout-console-bouton:focus:active 
+{
+    color: rgb(0, 90, 90);
+    background-color: rgb(0,255,255);
+    border: solid 2px rgb(0, 90, 90);
+}
+
+.ajout-console-table select, .ajout-console-table input
+{
+    margin-top: 6px;
+}
+
+.element-grid table
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ajout-console-table
+{
+    margin-top: 28%;
+}
+
+.suppr-texte
+{
+    margin-top: 35%;
+}
+
+.suppr-lien
+{
+    margin-left: 50px;
+}
+
+.modif-lien
+{
+    margin-right: 50px;
+}
+
+.messErrReu
+{
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 625px;
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0, 255, 255);
+}
+
+.boutton-standard
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.boutton-standard:hover 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.boutton-standard:focus 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.boutton-standard:active 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.boutton-standard:focus:hover
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.boutton-standard:focus:active 
+{
+    color: rgb(0, 90, 90);
+    background-color: rgb(0,255,255);
+    border: solid 2px rgb(0, 90, 90);
+}
+
+.btn-modif
+{
+    margin-right: 30px;
+}
+
+.btn-suppr
+{
+    margin-left: 30px;
+}
+
+
+.btn-suppr, .btn-modif
+{
+    margin-bottom: 10px;
+}
+
+.btn-non
+{
+    margin-left: 60px;
+}
+
+.btn-oui
+{
+    margin-right: 60px;
+}
+
+.img-consoles
+{
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.form-typeCons
+{
+    text-align: center;
+}
+
+.retour-type
+{
+    font-family: Retro;
+}
+
+.retour-type:link
+{
+    color: rgb(0,255,255);
+}
+
+.retour-type:visited
+{
+    color: rgb(0, 255, 255);
+}
+
+.retour-type:hover
+{
+    color: rgb(0, 90, 90);
+}
+
+.retour-type:active
+{
+    color: rgb(0, 150, 150);
+}
+
+.btn-ajout-type
+{
+    margin-top: 20px !important;
+    margin-bottom: 3px;
+}
+
+.btnTri{
+    width: 20px;
+    height: 20px;
+}
+
+.cyan{
+    background-color: cyan;
+}
+
+.etat button
+{
+    display: block;
+    margin-left: 15%;
+    margin-right: auto;
+    
+
+    font-family: retro-gaming;
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.etat button:hover 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.etat button:focus 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.etat button:active 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.etat button:focus:hover
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.etat button:focus:active 
+{
+    color: rgb(0, 90, 90);
+    background-color: rgb(0,255,255);
+    border: solid 2px rgb(0, 90, 90);
+}
+
+.inputEtat
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+
+    font-family: retro-gaming;
+    color: rgb(0,255,255);
+    background-color: rgb(103, 102, 102);
+    border: solid 2px rgb(0,255,255);
+}
+
+.inputEtat:hover 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.inputEtat:focus 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.inputEtat:active 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.inputEtat:focus:hover
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.inputEtat:focus:active 
+{
+    color: rgb(0, 90, 90);
+    background-color: rgb(0,255,255);
+    border: solid 2px rgb(0, 90, 90);
+}
+
+.validEtat
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+
+    font-family: retro-gaming;
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.validEtat:hover 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.validEtat:focus 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.validEtat:active 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.validEtat:focus:hover
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.validEtat:focus:active 
+{
+    color: rgb(0, 90, 90);
+    background-color: rgb(0,255,255);
+    border: solid 2px rgb(0, 90, 90);
+}
+
+
+.Imaguss button
+{
+    display: block;
+    margin-left: 15%;
+    margin-right: auto;
+    
+
+    font-family: retro-gaming;
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.Imaguss button:hover 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.Imaguss button:focus 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.Imaguss button:active 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.Imaguss button:focus:hover
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.Imaguss button:focus:active 
+{
+    color: rgb(0, 90, 90);
+    background-color: rgb(0,255,255);
+    border: solid 2px rgb(0, 90, 90);
+}
+
+
+
+
+.ajoutMarquebtn{
+   display: block;
+   margin-top: 60%;
+   margin-left: 25%;
+}
+
+.nomMarque{
+    position: relative;
+    margin-left: 20%;
+    margin-top: 10%;
+    font-family: retro-gaming;
+    color: rgb(0,255,255);
+    background-color: rgb(175, 159, 159);
+    border: solid 2px rgb(0,255,255);
+}
+
+.btnMarqueV{
+    position: relative; 
+    margin-top: 20%;
+    margin-bottom: 5%;
+}
+
+.btnMarqueVal{
+    position: relative; 
+    margin-top: 10%;
+    margin-left: 32%;
+    font-family: retro-gaming;
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+    
+}
+
+.btnMarqueVal:hover 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.btnMarqueVal:focus 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.btnMarqueVal:active 
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 0, 0);
+    border: solid 2px rgb(0,255,255);
+}
+
+.btnMarqueVal:focus:hover
+{
+    color: rgb(0,255,255);
+    background-color: rgb(0, 90, 90);
+    border: solid 2px rgb(0,255,255);
+}
+
+.btnMarqueVal:focus:active 
+{
+    color: rgb(0, 90, 90);
+    background-color: rgb(0,255,255);
+    border: solid 2px rgb(0, 90, 90);
+}
+
+
+.etat{
+    position: relative;
+    width: 25%;
+    height: 20%;
+    margin-bottom: 5%;
+    margin-top: 6%;
+    left: 35%;
+    font-size: 20px;
+    padding: 5%;
+    background: #000000;
+    box-shadow: 0em 0em 2em grey;
+    border: 3px solid rgb(0, 255, 255);
+}
+
+.btnAddEtat{
+    position: absolute;
+    top:90%;
+    left: 40%;
+    
+    
+}
+
+.descEtat{
+    margin-left: 22%;
+}
+
+.etat tr{
+    
+    color: rgb(0,255,255);
+
+}
+
+.textes-consoles-haut
+{
+    margin-top: 17%;
+}
+
+
+.btnRetourM{
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 5.5%;
+}
